@@ -3,7 +3,7 @@ name: Deploy Docs
 on:
   push:
     branches:
-      - main # se ejecuta al hacer push a main
+      - main
 
 jobs:
   build-deploy:
@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -22,4 +24,9 @@ jobs:
           pip install mkdocs mkdocs-material
 
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          mkdocs gh-deploy --force --remote-url https://x-access-token:${GH_TOKEN}@github.com/KongSoftwareSpain/projects-docs.git

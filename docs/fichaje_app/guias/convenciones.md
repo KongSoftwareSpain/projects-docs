@@ -339,29 +339,47 @@ const crearUsuario = async (req, res) => {
 
 ## 📅 Manejo de Fechas
 
-**Usar js-joda:**
+> [!IMPORTANT]
+> El proyecto está en **transición de js-joda a date-fns**. Usa `date-fns` para código nuevo.
+
+**Usar date-fns (RECOMENDADO):**
 
 ```javascript
 // Backend
-const { LocalDateTime, ZoneId } = require("@js-joda/core");
+const { format, parseISO, addDays } = require("date-fns");
+const { utcToZonedTime, zonedTimeToUtc } = require("date-fns-tz");
 
-// Obtener fecha actual
-const ahora = LocalDateTime.now(ZoneId.of("Europe/Madrid"));
-
-// Parsear fecha
-const fecha = LocalDateTime.parse("2025-12-30T10:30:00");
+// Obtener fecha actual en zona horaria
+const timezone = "Europe/Madrid";
+const ahora = utcToZonedTime(new Date(), timezone);
 
 // Formatear fecha
-const fechaFormateada = ahora.format(
-  DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")
-);
+const fechaFormateada = format(ahora, "dd/MM/yyyy HH:mm");
+
+// Parsear fecha
+const fecha = parseISO("2025-12-30T10:30:00");
 ```
 
 ```typescript
 // Frontend
-import { LocalDateTime, ZoneId, DateTimeFormatter } from "@js-joda/core";
+import { format, parseISO, addDays } from "date-fns";
+import { utcToZonedTime, zonedTimeToUtc } from "date-fns-tz";
+import { es } from "date-fns/locale";
 
 // Mismo uso que en backend
+const ahora = utcToZonedTime(new Date(), "Europe/Madrid");
+
+// Con locale español
+const fechaFormateada = format(ahora, "dd/MM/yyyy HH:mm", { locale: es });
+```
+
+**Código legacy (js-joda):**
+
+Si encuentras código antiguo con `js-joda`, puedes mantenerlo o migrarlo:
+
+```javascript
+// Código antiguo - aún funcional
+import { LocalDateTime, ZoneId } from "@js-joda/core";
 const ahora = LocalDateTime.now(ZoneId.of("Europe/Madrid"));
 ```
 

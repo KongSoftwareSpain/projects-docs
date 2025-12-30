@@ -7,6 +7,7 @@ Bienvenido a la documentación del sistema de gestión de fichajes, proyectos y 
 ### 🏗️ Arquitectura
 
 - [Vista General de la Arquitectura](arquitectura/overview.md) - Descripción completa de la arquitectura del sistema
+- [Infraestructura y Despliegue](arquitectura/infraestructura.md) - Topología de servidores y bases de datos
 - [Decisiones Arquitectónicas](arquitectura/decisiones.md) - Decisiones técnicas importantes y advertencias
 
 ### 📖 Guías
@@ -77,7 +78,7 @@ Fichaje/
 ## 🔗 Enlaces Rápidos
 
 - **Repositorio**: [GitHub](https://github.com/tu-repo/fichaje)
-- **Backend API**: `http://localhost:3000/api/v1`
+- **Backend API**: `http://localhost:3000`
 - **Frontend Dev**: `http://localhost:4200`
 
 ## 📞 Contacto y Soporte

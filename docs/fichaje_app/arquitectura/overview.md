@@ -62,7 +62,7 @@ sequenceDiagram
 **Componentes clave:**
 
 - **authMiddleware.js**: Verifica el token JWT en cada petición
-- **authorizeRol.js**: Verifica permisos por rol (admin, manager, empleado)
+- **authorizeRol.js**: Verifica permisos por rol (admin, superadmin, usuario)
 - **superadminMiddleware.js**: Protege rutas exclusivas de superadmin
 
 ### 2. Flujo de Fichaje (Asistencia)
@@ -76,7 +76,7 @@ sequenceDiagram
 
     U->>F: Click "Fichar Entrada"
     F->>F: Obtener geolocalización
-    F->>A: POST /api/v1/asistencia/fichar-entrada
+    F->>A: POST /asistencia/fichar-entrada
     A->>DB: Verificar parte_auto (CONFIG_EMPRESA)
 
     alt parte_auto = true
@@ -133,11 +133,11 @@ backend-AppServicios/
 ├── server.js                 # Punto de entrada, configuración Express
 ├── routes/                   # Definición de endpoints
 │   ├── authRoutes.js        # /auth/*
-│   ├── asistenciaRoutes.js  # /api/v1/asistencia/*
-│   ├── proyectosRoutes.js   # /api/v1/proyectos/*
-│   ├── parteRoutes.js       # /api/v1/partes/*
-│   ├── albaranRoutes.js     # /api/v1/albaran/*
-│   ├── notaGastoRoutes.js   # /api/v1/nota-gasto/*
+│   ├── asistenciaRoutes.js  # /asistencia/*
+│   ├── proyectosRoutes.js   # /proyectos/*
+│   ├── parteRoutes.js       # /partes/*
+│   ├── albaranRoutes.js     # /albaran/*
+│   ├── notaGastoRoutes.js   # /nota-gasto/*
 │   └── ...
 ├── controllers/              # Lógica de negocio
 │   ├── asistenciaController.js
@@ -212,10 +212,14 @@ front-AppServicios/src/app/
 
 ### Niveles de Acceso
 
-1. **Superadmin**: Acceso total al sistema, gestión de empresas
-2. **Admin**: Administrador de empresa
-3. **Manager/RRHH**: Gestión de empleados y aprobaciones
-4. **Empleado**: Acceso básico (fichaje, partes, vacaciones)
+1. **Superadmin**: Usuario interno para gestión global de empresas.
+2. **Admin**: Administrador de empresa (Gestión si no hay vínculo ERP).
+3. **Usuario**: Usuario estándar del sistema.
+
+**Categorías Laborales (Funcionalidad extra):**
+
+- **Técnico**: Permisos extra en gestión de OTs.
+- **Operario/Administrativo**: Funcionalidad estándar.
 
 ### Flujo de Autorización
 
@@ -301,26 +305,26 @@ POST   /auth/login
 POST   /auth/refresh
 
 Asistencia:
-POST   /api/v1/asistencia/fichar-entrada
-POST   /api/v1/asistencia/fichar-salida
-GET    /api/v1/asistencia/partes-usuario
+POST   /asistencia/fichar-entrada
+POST   /asistencia/fichar-salida
+GET    /asistencia/partes-usuario
 
 Proyectos:
-GET    /api/v1/proyectos
-GET    /api/v1/proyectos/:id
-POST   /api/v1/proyectos
-PUT    /api/v1/proyectos/:id
+GET    /proyectos
+GET    /proyectos/:id
+POST   /proyectos
+PUT    /proyectos/:id
 
 Partes de Trabajo:
-GET    /api/v1/partes
-POST   /api/v1/partes
-PUT    /api/v1/partes/:id
+GET    /partes
+POST   /partes
+PUT    /partes/:id
 
 Albaranes:
-GET    /api/v1/albaran/cabecera
-POST   /api/v1/albaran/cabecera
-GET    /api/v1/albaran/detalles
-POST   /api/v1/albaran/detalles
+GET    /albaran/cabecera
+POST   /albaran/cabecera
+GET    /albaran/detalles
+POST   /albaran/detalles
 ```
 
 ### Formato de Respuestas
@@ -367,19 +371,25 @@ El frontend está configurado como PWA:
 
 ## 🔄 Manejo de Fechas
 
-**Importante**: El sistema usa **js-joda** para manejo de fechas en ambos lados:
+> [!IMPORTANT] > **TRANSICIÓN EN CURSO**: El proyecto está migrando de `js-joda` a `date-fns`. Código nuevo debe usar `date-fns`.
+
+**Librería actual (código nuevo):** date-fns + date-fns-tz
 
 ```javascript
 // Backend
-const { LocalDateTime, ZoneId } = require("@js-joda/core");
-const fecha = LocalDateTime.now(ZoneId.of("Europe/Madrid"));
+const { format, parseISO } = require("date-fns");
+const { utcToZonedTime } = require("date-fns-tz");
+const fecha = utcToZonedTime(new Date(), "Europe/Madrid");
 ```
 
 ```typescript
 // Frontend
-import { LocalDateTime, ZoneId } from "@js-joda/core";
-const fecha = LocalDateTime.now(ZoneId.of("Europe/Madrid"));
+import { format, parseISO } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
+const fecha = utcToZonedTime(new Date(), "Europe/Madrid");
 ```
+
+**Código legacy:** Aún encontrarás `js-joda` en partes antiguas del código.
 
 **Zona horaria**: Europa/Madrid (configurada en ambos lados)
 
@@ -397,6 +407,20 @@ Usado para almacenar:
 
 - `AZURE_STORAGE_CONNECTION_STRING`
 - `AZURE_STORAGE_CONTAINER_NAME`
+
+## 🌍 Infraestructura y Despliegue
+
+> [!IMPORTANT]
+> La infraestructura es compleja debido a la coexistencia de sistemas legacy y modernos.
+> **Consulta el documento dedicado:** 📄 [Infraestructura y Despliegue](infraestructura.md)
+
+### Resumen Rápido
+
+- **6 Bases de Datos**: Mezcla de dedicadas y multi-tenant.
+- **5 Entornos de Producción**: Gestionados por ramas de Git (`main`, `LaTorre`, `kong1`, etc.).
+- **Modelo Híbrido**: Transición de "Servidor por Cliente" a "Multi-tenant".
+
+Ver detalle completo en [Infraestructura](infraestructura.md).
 
 ---
 

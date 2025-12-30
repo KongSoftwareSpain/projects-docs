@@ -57,7 +57,7 @@ DB_PASSWORD=tu_password
 # CONFIGURACIÓN DE SERVIDOR
 # ============================================
 PORT=3000
-BASE_API_URL=/api/v1/
+# No se usa BASE_API_URL con /v1
 
 # ============================================
 # JWT (AUTENTICACIÓN)
@@ -155,7 +155,7 @@ Verificar configuración en `src/environments/environment.ts`:
 ```typescript
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:3000/api/v1",
+  apiUrl: "http://localhost:3000",
 };
 ```
 
@@ -284,7 +284,7 @@ VALUES (
 O usar el endpoint de superadmin (si está configurado):
 
 ```bash
-POST http://localhost:3000/api/v1/empresa/crear-empresa
+POST http://localhost:3000/empresa/crear-empresa
 {
   "nombre": "Empresa Test",
   "usuario": "admin",
@@ -365,7 +365,7 @@ Content-Type: application/json
 }
 
 ### Obtener proyectos (requiere token)
-GET http://localhost:3000/api/v1/proyectos
+GET http://localhost:3000/proyectos
 Authorization: Bearer {{token}}
 ```
 
@@ -438,7 +438,7 @@ app.use(cors());
 2. Verificar URL en `environment.ts`:
 
 ```typescript
-apiUrl: "http://localhost:3000/api/v1";
+apiUrl: "http://localhost:3000";
 ```
 
 ## 📊 Verificar Instalación

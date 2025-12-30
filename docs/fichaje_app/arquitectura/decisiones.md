@@ -4,42 +4,48 @@ Este documento detalla las decisiones técnicas importantes del proyecto y las a
 
 ## ⚠️ ADVERTENCIAS CRÍTICAS
 
-### 🔴 Conexión Paralela a Base de Datos Access (LEGACY)
+### 🔴 Integración con ERP Antiguo en Access
 
-> [!CAUTION] > **PROBLEMA ARQUITECTÓNICO GRAVE**: El sistema mantiene una conexión paralela a una base de datos Microsoft Access heredada que coexiste con SQL Server.
+> [!CAUTION] > **CONTEXTO ARQUITECTÓNICO IMPORTANTE**: El sistema SQL Server de esta aplicación se alimenta de datos provenientes de un **ERP antiguo basado en Microsoft Access**.
 
-**Contexto:**
+**Contexto real:**
 
-- El proyecto originalmente usaba Access como base de datos principal
-- Se migró a SQL Server, pero **NO se migró toda la funcionalidad**
-- Algunos módulos aún consultan directamente la base de datos Access
+- La empresa usa un ERP legacy en Access que sigue siendo la fuente principal de los datos
+- SQL Server **NO reemplazó** a Access, sino que **se integra** con él
+- Los datos fluyen desde el ERP Access hacia SQL Server
+- Esta integración es **intencional y necesaria** para el funcionamiento del negocio
 
-**Ubicación del código problemático:**
+**Implicaciones en el diseño:**
+
+> [!IMPORTANT]
+> Muchas decisiones de diseño de la base de datos están **condicionadas por el ERP Access**. No te asustes por cómo está montado, es así por necesidad.
+
+**Campos específicos del ERP:**
+
+- `id_origen`: ID del registro en la base de datos Access original
+- Nombres de campos: Mantienen nomenclatura del ERP legacy
+- Estructura de tablas: Refleja el modelo del ERP Access
+- Relaciones: Algunas están condicionadas por el sistema antiguo
+
+**Por qué existe esta integración:**
+
+- ✅ El ERP Access sigue en uso para otras funcionalidades del negocio
+- ✅ Migración completa no es viable a corto plazo
+- ✅ Necesidad de mantener sincronización de datos
+- ✅ Evita duplicación de trabajo en el ERP legacy
+
+**Ubicación del código de integración:**
 
 ```javascript
 // Buscar en el código por referencias a Access o conexiones ODBC
 // Principalmente en:
-// - controllers/emailController.js (configuración SMTP desde Access)
-// - Cualquier uso de mssql directo sin Sequelize
+// - Sincronización de datos desde Access
+// - Campos como id_origen que referencian IDs de Access
 ```
 
-**Impacto:**
+**Recomendación para desarrolladores:**
 
-- ⚠️ **Inconsistencia de datos**: Datos duplicados entre Access y SQL Server
-- ⚠️ **Mantenimiento complejo**: Dos fuentes de verdad
-- ⚠️ **Escalabilidad limitada**: Access no es escalable
-- ⚠️ **Riesgo de corrupción**: Access es propenso a corrupción con múltiples usuarios
-
-**Recomendación:**
-
-1. **Corto plazo**: Documentar todas las consultas a Access
-2. **Medio plazo**: Migrar datos restantes a SQL Server
-3. **Largo plazo**: Eliminar completamente la dependencia de Access
-
-**Tablas afectadas conocidas:**
-
-- `Configuracion_Empresa` (Access) vs `CONFIG_EMPRESA` (SQL Server)
-- Configuración de correo SMTP
+> [!NOTE] > **NO intentes "arreglar" o "normalizar" la estructura de la base de datos** sin consultar primero. Las decisiones de diseño están atadas al ERP legacy por razones de negocio.
 
 ### 🟡 Consultas SQL Directas (Sin ORM)
 
@@ -153,13 +159,24 @@ const usuarios = await db.USUARIOS.findAll();
 
 ### 4. Multi-tenancy por Empresa
 
-**Decisión**: Soft multi-tenancy con `id_empresa`
+**Decisión**: Transición de modelo Single-tenant (Legacy) a Soft Multi-tenancy (Futuro).
 
-**Razones:**
+> [!NOTE]
+> Actualmente coexisten ambos modelos. Ver [Infraestructura](../arquitectura/overview.md#🌍-infraestructura-y-despliegue-topología-actual).
 
+**Razones del cambio a Multi-tenant (`kong1App`):**
+
+- ✅ **Consolidación**: Evitar mantener N servidores para N clientes
 - ✅ Una sola base de datos para todas las empresas
-- ✅ Más simple de mantener
+- ✅ Más simple de mantener y desplegar
 - ✅ Costos reducidos
+
+**Estado Actual (Híbrido):**
+
+- **Legacy**: Servidores dedicados por cliente (`AppFichaje`, `ThrApp`, etc.)
+- **Moderno**: Servidor multi-tenant (`kong1App`) alojando múltiples clientes
+
+**Implementación del Multi-tenancy:**
 
 **Implementación:**
 
@@ -216,24 +233,63 @@ const data = await db.TABLA.findAll({
 - ❌ Posibles conflictos de estilos
 - ❌ Dos sistemas de diseño
 
-### 7. js-joda para Manejo de Fechas
+### 7. Manejo de Fechas: Transición a date-fns
 
-**Decisión**: Usar js-joda en lugar de Date nativo o moment.js
+**Decisión actual**: Migración progresiva de js-joda a date-fns
 
-**Razones:**
+> [!IMPORTANT] > **ESTADO DE TRANSICIÓN**: El proyecto está en proceso de migración de `js-joda` a `date-fns`. Actualmente coexisten ambas librerías.
 
-- ✅ Inmutable (evita bugs)
-- ✅ API clara y consistente
-- ✅ Soporte de zonas horarias
-- ✅ Compatible entre backend y frontend
+**Contexto de la transición:**
 
-**Configuración:**
+- ✅ **Código nuevo**: Usar `date-fns` y `date-fns-tz`
+- ⚠️ **Código legacy**: Aún usa `js-joda`
+- 🔄 **Migración gradual**: Se está cambiando poco a poco
+
+**Por qué date-fns:**
+
+- ✅ Más ligero y modular
+- ✅ Mejor rendimiento
+- ✅ API más simple y funcional
+- ✅ Mejor soporte de TypeScript
+- ✅ Tree-shaking (reduce bundle size)
+
+**Configuración recomendada (código nuevo):**
 
 ```javascript
-// Zona horaria: Europe/Madrid
+// Backend - date-fns
+const { format, parseISO, addDays } = require("date-fns");
+const { zonedTimeToUtc, utcToZonedTime } = require("date-fns-tz");
+
+// Zona horaria
+const timezone = "Europe/Madrid";
+const ahora = utcToZonedTime(new Date(), timezone);
+```
+
+```typescript
+// Frontend - date-fns
+import { format, parseISO, addDays } from "date-fns";
+import { zonedTimeToUtc, utcToZonedTime } from "date-fns-tz";
+import { es } from "date-fns/locale";
+
+// Formatear fecha
+const fechaFormateada = format(new Date(), "dd/MM/yyyy HH:mm", { locale: es });
+```
+
+**Código legacy (js-joda):**
+
+```javascript
+// Aún encontrarás esto en código antiguo
 import { LocalDateTime, ZoneId } from "@js-joda/core";
 const ahora = LocalDateTime.now(ZoneId.of("Europe/Madrid"));
 ```
+
+**Guía para desarrolladores:**
+
+> [!NOTE]
+>
+> - **Nuevo código**: Usa `date-fns`
+> - **Modificando código existente**: Puedes mantener `js-joda` o migrar a `date-fns` si el cambio es significativo
+> - **No mezcles**: En un mismo archivo/módulo, usa una sola librería
 
 > [!IMPORTANT] > **CRÍTICO**: Sequelize con SQL Server y fechas es complicado. Ver [Guía de Fechas con Sequelize](#guía-de-fechas-con-sequelize).
 
@@ -388,14 +444,16 @@ SQL Server almacena fechas en formato local del servidor, pero Sequelize asume U
 
 ## 📝 Resumen de Deuda Técnica
 
-| Prioridad | Ítem                                | Impacto |
-| --------- | ----------------------------------- | ------- |
-| 🔴 ALTA   | Eliminar dependencia de Access      | Alto    |
-| 🔴 ALTA   | Implementar tests                   | Alto    |
-| 🟡 MEDIA  | Migrar queries directas a Sequelize | Medio   |
-| 🟡 MEDIA  | Implementar logging estructurado    | Medio   |
-| 🟢 BAJA   | Optimizar rendimiento               | Bajo    |
-| 🟢 BAJA   | Implementar rate limiting           | Bajo    |
+| Prioridad | Ítem                                | Impacto | Nota                  |
+| --------- | ----------------------------------- | ------- | --------------------- |
+| 🔴 ALTA   | Implementar tests                   | Alto    | Urgente               |
+| 🟡 MEDIA  | Migrar queries directas a Sequelize | Medio   | Mejora mantenibilidad |
+| 🟡 MEDIA  | Implementar logging estructurado    | Medio   | Mejora debugging      |
+| 🟢 BAJA   | Optimizar rendimiento               | Bajo    | No crítico            |
+| 🟢 BAJA   | Implementar rate limiting           | Bajo    | Seguridad adicional   |
+
+> [!NOTE]
+> La integración con Access **NO es deuda técnica**, es una decisión de negocio necesaria.
 
 ---
 

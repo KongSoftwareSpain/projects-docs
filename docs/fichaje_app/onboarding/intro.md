@@ -27,31 +27,41 @@ El sistema está diseñado para dar servicio a **múltiples empresas** desde una
 - Un **superadmin** gestiona todas las empresas
 - Cada empresa tiene sus propios **administradores**
 
-### Roles de Usuario
+### Roles de Usuario (Permisos)
+
+El sistema maneja 3 roles principales de acceso:
 
 1. **Superadmin**:
 
-   - Gestiona todas las empresas del sistema
-   - Crea nuevas empresas y sus primeros usuarios
-   - Acceso total
+   - Rol interno de nuestra empresa (desarrolladora/gestora).
+   - Controla el alta y gestión de las empresas clientes.
 
-2. **Admin** (Administrador de empresa):
+2. **Admin** (Administrador de Empresa):
 
-   - Gestiona usuarios de su empresa
-   - Configura módulos y permisos
-   - Gestiona proyectos y clientes
+   - Acceso al panel de gestión de la empresa.
+   - **Nota importante**: Solo disponible si la empresa **NO está vinculada al ERP** (o funcionalidad limitada si lo está).
 
-3. **Manager/RRHH**:
+3. **Usuario**:
 
-   - Aprueba vacaciones y notas de gasto
-   - Visualiza estadísticas de empleados
-   - Gestiona horarios
+   - Acceso básico a la aplicación (fichaje, partes, etc.).
 
-4. **Empleado**:
-   - Ficha entrada/salida
-   - Crea partes de trabajo
-   - Solicita vacaciones
-   - Gestiona notas de gasto
+   _(Ya no existen roles específicos de "Manager" o "RRHH")_
+
+### Categorías Laborales
+
+Más allá de los permisos de acceso (Roles), cada usuario tiene una **categoría profesional** que define su operativa diaria:
+
+1. **Operario**:
+
+   - Realiza fichajes y partes de trabajo estándar.
+
+2. **Técnico**:
+
+   - Tiene permisos adicionales sobre **Órdenes de Trabajo** (OTs).
+   - Puede realizar acciones técnicas específicas en las OTs asignadas.
+
+3. **Administrativo**:
+   - Actualmente funcionalmente igual al resto, reservado para uso futuro.
 
 ## 🔑 Conceptos Clave
 
@@ -121,16 +131,11 @@ Los empleados pueden:
 - Adjuntar tickets (Azure Blob Storage)
 - Enviar a aprobación
 
-Los managers pueden:
-
-- Aprobar/rechazar notas
-- Solicitar modificaciones
-
 **Estados:**
 
 - `borrador`: En edición
 - `pendiente`: Enviada a aprobación
-- `aprobada`: Aprobada por manager
+- `aprobada`: Aprobada
 - `rechazada`: Rechazada
 
 ## 📚 Módulos Principales
@@ -167,7 +172,7 @@ Los managers pueden:
 - **JWT**: Autenticación stateless
 - **bcrypt**: Hash de passwords
 - **Azure Blob Storage**: Almacenamiento de archivos
-- **js-joda**: Manejo de fechas
+- **date-fns**: Manejo de fechas (en transición desde js-joda)
 
 ### Frontend
 
@@ -177,7 +182,7 @@ Los managers pueden:
 - **RxJS**: Programación reactiva
 - **ngx-charts**: Gráficos
 - **FullCalendar**: Calendario de eventos
-- **js-joda**: Manejo de fechas (mismo que backend)
+- **date-fns**: Manejo de fechas (en transición desde js-joda)
 
 ### Base de Datos
 
@@ -241,8 +246,7 @@ Sigue la guía de [Configuración del Entorno](entorno.md) para:
 
 El manejo de fechas con Sequelize y SQL Server es complicado:
 
-- Siempre usar **js-joda**
-- Configurar timezone correctamente
+- Usar **date-fns** para código nuevo (js-joda en código legacy)
 - Ver [Guía de Fechas](../arquitectura/decisiones.md#-guía-de-fechas-con-sequelize)
 
 ### 🟡 Multi-tenancy

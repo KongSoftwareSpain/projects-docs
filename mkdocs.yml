@@ -1,0 +1,31 @@
+site_name: Project Docs
+theme:
+  name: material
+  language: es
+
+nav:
+  - Inicio: index.md
+  - Fichaje App:
+      - Visión general: fichaje_app/index.md
+      - Onboarding:
+          - Introducción: fichaje_app/onboarding/intro.md
+          - Entorno: fichaje_app/onboarding/entorno.md
+      - Arquitectura:
+          - Overview: fichaje_app/arquitectura/overview.md
+          - Decisiones: fichaje_app/arquitectura/decisiones.md
+      - Guías:
+          - Convenciones: fichaje_app/guias/convenciones.md
+      - Otros:
+          - Recursos: fichaje_app/otros/recursos.md
+  - Proyecto Ejemplo:
+      - Visión general: proyecto_ejemplo/index.md
+      - Onboarding:
+          - Introducción: proyecto_ejemplo/onboarding/intro.md
+          - Entorno: proyecto_ejemplo/onboarding/entorno.md
+      - Arquitectura:
+          - Overview: proyecto_ejemplo/arquitectura/overview.md
+          - Decisiones: proyecto_ejemplo/arquitectura/decisiones.md
+      - Guías:
+          - Convenciones: proyecto_ejemplo/guias/convenciones.md
+      - Otros:
+          - Recursos: proyecto_ejemplo/otros/recursos.md

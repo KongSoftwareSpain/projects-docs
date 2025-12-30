@@ -1,5 +1,7 @@
-# Documentación del equipo
+# Documentación de Proyectos
 
-Este sitio contiene la documentación oficial del equipo.
+Bienvenido al índice general de documentación.
 
-Si no está aquí, no existe.
+## Proyectos
+
+- [Fichaje App](fichaje_app/index.md)

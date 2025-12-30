@@ -176,7 +176,7 @@ Deberías ver:
 
 Abre tu navegador en `http://localhost:4200`
 
-## 🗄️ Configuración de Base de Datos
+## 🗄️ Detalles Técnicos de Base de Datos
 
 ### Estructura de Instancia SQL Server
 

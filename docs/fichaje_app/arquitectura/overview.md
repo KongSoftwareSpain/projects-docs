@@ -212,9 +212,17 @@ front-AppServicios/src/app/
 
 ### Niveles de Acceso
 
-1. **Superadmin**: Usuario interno para gestión global de empresas.
-2. **Admin**: Administrador de empresa (Gestión si no hay vínculo ERP).
-3. **Usuario**: Usuario estándar del sistema.
+#### 1. Superadmin
+
+Usuario interno para gestión global de empresas.
+
+#### 2. Admin
+
+Administrador de empresa (Gestión si no hay vínculo ERP).
+
+#### 3. Usuario
+
+Usuario estándar del sistema.
 
 **Categorías Laborales (Funcionalidad extra):**
 

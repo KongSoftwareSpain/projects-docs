@@ -31,37 +31,38 @@ El sistema está diseñado para dar servicio a **múltiples empresas** desde una
 
 El sistema maneja 3 roles principales de acceso:
 
-1. **Superadmin**:
+#### 1. Superadmin
 
-   - Rol interno de nuestra empresa (desarrolladora/gestora).
-   - Controla el alta y gestión de las empresas clientes.
+- Rol interno de nuestra empresa (desarrolladora/gestora).
+- Controla el alta y gestión de las empresas clientes.
 
-2. **Admin** (Administrador de Empresa):
+#### 2. Admin (Administrador de Empresa)
 
-   - Acceso al panel de gestión de la empresa.
-   - **Nota importante**: Solo disponible si la empresa **NO está vinculada al ERP** (o funcionalidad limitada si lo está).
+- Acceso al panel de gestión de la empresa.
+- **Nota importante**: Solo disponible si la empresa **NO está vinculada al ERP** (o funcionalidad limitada si lo está).
 
-3. **Usuario**:
+#### 3. Usuario
 
-   - Acceso básico a la aplicación (fichaje, partes, etc.).
+- Acceso básico a la aplicación (fichaje, partes, etc.).
 
-   _(Ya no existen roles específicos de "Manager" o "RRHH")_
+_(Ya no existen roles específicos de "Manager" o "RRHH")_
 
 ### Categorías Laborales
 
 Más allá de los permisos de acceso (Roles), cada usuario tiene una **categoría profesional** que define su operativa diaria:
 
-1. **Operario**:
+#### 1. Operario
 
-   - Realiza fichajes y partes de trabajo estándar.
+- Realiza fichajes y partes de trabajo estándar.
 
-2. **Técnico**:
+#### 2. Técnico
 
-   - Tiene permisos adicionales sobre **Órdenes de Trabajo** (OTs).
-   - Puede realizar acciones técnicas específicas en las OTs asignadas.
+- Tiene permisos adicionales sobre **Órdenes de Trabajo** (OTs).
+- Puede realizar acciones técnicas específicas en las OTs asignadas.
 
-3. **Administrativo**:
-   - Actualmente funcionalmente igual al resto, reservado para uso futuro.
+#### 3. Administrativo
+
+- Actualmente funcionalmente igual al resto, reservado para uso futuro.
 
 ## 🔑 Conceptos Clave
 

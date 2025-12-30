@@ -106,14 +106,19 @@ Dado que hay 5 servidores de backend diferentes, cada frontend debe saber a cuá
 
 ## ⚠️ Puntos Críticos para Desarrolladores
 
-1. **Selección de Rama**: Cuando desarrolles una nueva feature, **¿dónde debe ir?**
-   - Si es core: Normalmente a `kong1` y luego cherry-pick/merge a las demás.
-   - Si es hotfix para un cliente: A su rama específica (`THR`, `Ezeq`, etc.).
-2. **Confusión de Nombres**:
+### 1. Selección de Rama
 
-   - `appLaTorre` (BD) -> Es para uso interno.
-   - `AppFichaje` (BD) -> Es para el cliente LaTorre.
-   - Rama `main` -> Despliega al cliente LaTorre (no es el trunk genérico habitual).
+Cuando desarrolles una nueva feature, **¿dónde debe ir?**
 
-3. **Multi-tenancy Híbrido**:
-   - Al codificar, **SIEMPRE asume que estás en entorno multi-tenant** (filtra por empresa), incluso si el código corre en un servidor dedicado. Esto facilita la migración futura a `kong1App`.
+- Si es core: Normalmente a `kong1` y luego cherry-pick/merge a las demás.
+- Si es hotfix para un cliente: A su rama específica (`THR`, `Ezeq`, etc.).
+
+### 2. Confusión de Nombres
+
+- `appLaTorre` (BD) -> Es para uso interno.
+- `AppFichaje` (BD) -> Es para el cliente LaTorre.
+- Rama `main` -> Despliega al cliente LaTorre (no es el trunk genérico habitual).
+
+### 3. Multi-tenancy Híbrido
+
+Al codificar, **SIEMPRE asume que estás en entorno multi-tenant** (filtra por empresa), incluso si el código corre en un servidor dedicado. Esto facilita la migración futura a `kong1App`.

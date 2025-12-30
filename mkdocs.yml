@@ -12,6 +12,7 @@ nav:
           - Entorno: fichaje_app/onboarding/entorno.md
       - Arquitectura:
           - Overview: fichaje_app/arquitectura/overview.md
+          - Infraestructura: fichaje_app/arquitectura/infraestructura.md
           - Decisiones: fichaje_app/arquitectura/decisiones.md
       - Guías:
           - Convenciones: fichaje_app/guias/convenciones.md

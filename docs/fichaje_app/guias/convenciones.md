@@ -6,13 +6,13 @@ Este documento describe las convenciones y estándares de código que se siguen 
 
 ### Backend (Node.js/Express)
 
-**Nomenclatura:**
+#### Nomenclatura
 
 - Archivos: `camelCase.js` (ej: `asistenciaController.js`)
 - Carpetas: `lowercase` (ej: `controllers`, `routes`)
 - Modelos Sequelize: `UPPERCASE.js` (ej: `USUARIOS.js`, `PROYECTOS.js`)
 
-**Organización:**
+#### Organización
 
 ```
 backend-AppServicios/
@@ -31,7 +31,7 @@ backend-AppServicios/
 
 ### Frontend (Angular)
 
-**Nomenclatura Angular:**
+#### Nomenclatura Angular
 
 - Componentes: `nombre-componente.component.ts`
 - Servicios: `nombre.service.ts`
@@ -39,7 +39,7 @@ backend-AppServicios/
 - Interfaces: `nombre.ts`
 - Pipes: `nombre.pipe.ts`
 
-**Organización:**
+#### Organización
 
 ```
 src/app/
@@ -64,7 +64,7 @@ src/app/
 
 ### Backend (JavaScript)
 
-**Formato general:**
+#### Formato General
 
 ```javascript
 // ✅ BIEN
@@ -86,7 +86,7 @@ const funcionEjemplo = async (req, res) => {
 };
 ```
 
-**Convenciones:**
+#### Convenciones
 
 - ✅ Usar `const` y `let`, nunca `var`
 - ✅ Arrow functions para callbacks
@@ -94,7 +94,7 @@ const funcionEjemplo = async (req, res) => {
 - ✅ Destructuring de objetos
 - ✅ Template literals para strings
 
-**Manejo de errores:**
+#### Manejo de Errores
 
 ```javascript
 // ✅ BIEN - Try/catch en todos los controllers
@@ -116,7 +116,7 @@ const controller = async (req, res) => {
 
 ### Frontend (TypeScript)
 
-**Formato general:**
+#### Formato General
 
 ```typescript
 // ✅ BIEN
@@ -147,7 +147,7 @@ export class MiComponente implements OnInit {
 }
 ```
 
-**Convenciones TypeScript:**
+#### Convenciones TypeScript
 
 - ✅ Tipado explícito en parámetros y retornos
 - ✅ Interfaces para estructuras de datos
@@ -155,7 +155,7 @@ export class MiComponente implements OnInit {
 - ✅ Readonly para propiedades inmutables
 - ✅ Optional chaining (`?.`) y nullish coalescing (`??`)
 
-**Servicios:**
+#### Servicios
 
 ```typescript
 // ✅ BIEN
@@ -183,14 +183,14 @@ export class MiService {
 
 ### Modelos Sequelize
 
-**Convenciones:**
+#### Convenciones
 
 - Nombres de tabla: `UPPERCASE` (ej: `USUARIOS`, `PROYECTOS`)
 - Nombres de columna: `snake_case` (ej: `id_empresa`, `fecha_creacion`)
 - Primary key: siempre `id`
 - Foreign keys: `[tabla]_id` (ej: `usuario_id`, `proyecto_id`)
 
-**Ejemplo de modelo:**
+#### Ejemplo de modelo
 
 ```javascript
 module.exports = function (sequelize, DataTypes) {
@@ -245,7 +245,7 @@ module.exports = function (sequelize, DataTypes) {
 
 ### Queries
 
-**Convenciones:**
+#### Convenciones
 
 ```javascript
 // ✅ BIEN - Usar Sequelize
@@ -278,7 +278,7 @@ const result = await sequelize.query(
 
 ### Autenticación
 
-**En routes:**
+#### En Routes
 
 ```javascript
 const express = require("express");
@@ -306,7 +306,7 @@ module.exports = router;
 
 ### Validación de Entrada
 
-**En controllers:**
+#### En Controllers
 
 ```javascript
 // ✅ BIEN - Validar entrada
@@ -342,7 +342,7 @@ const crearUsuario = async (req, res) => {
 > [!IMPORTANT]
 > El proyecto está en **transición de js-joda a date-fns**. Usa `date-fns` para código nuevo.
 
-**Usar date-fns (RECOMENDADO):**
+#### Código Nuevo (Recomendado: date-fns)
 
 ```javascript
 // Backend
@@ -373,7 +373,7 @@ const ahora = utcToZonedTime(new Date(), "Europe/Madrid");
 const fechaFormateada = format(ahora, "dd/MM/yyyy HH:mm", { locale: es });
 ```
 
-**Código legacy (js-joda):**
+#### Código Legacy (js-joda)
 
 Si encuentras código antiguo con `js-joda`, puedes mantenerlo o migrarlo:
 
@@ -562,7 +562,7 @@ export class MiService {
 
 ## 📝 Comentarios y Documentación
 
-**Comentarios en código:**
+#### Comentarios Inline
 
 ```javascript
 // ✅ BIEN - Comentarios útiles
@@ -574,7 +574,7 @@ const parteAuto = await checkParteAuto(empresa);
 const usuario = await db.USUARIOS.create(datos);
 ```
 
-**JSDoc para funciones complejas:**
+#### JSDoc para funciones complejas
 
 ```javascript
 /**

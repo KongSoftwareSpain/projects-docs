@@ -3,6 +3,9 @@ theme:
   name: material
   language: es
 
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:

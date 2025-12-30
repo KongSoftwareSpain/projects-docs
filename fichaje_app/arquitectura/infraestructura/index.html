@@ -1,0 +1,1877 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../decisiones/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Infraestructura - Project Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#infraestructura-y-despliegue" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../.." title="Project Docs" class="md-header__button md-logo" aria-label="Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Project Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Infraestructura
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Project Docs" class="md-nav__button md-logo" aria-label="Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Project Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyecto Ejemplo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proyecto Ejemplo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visión general
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Onboarding
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/onboarding/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/onboarding/entorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/arquitectura/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/arquitectura/decisiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/guias/convenciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/otros/recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichaje App
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fichaje App
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visión general
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Onboarding
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/entorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infraestructura
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infraestructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mapa-de-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Mapa de Infraestructura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ Mapa de Infraestructura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-topologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de Topología
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bases-de-datos-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bases de Datos (SQL Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-despliegue-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Estrategia de Despliegue (CI/CD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Estrategia de Despliegue (CI/CD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapeo-de-ramas-a-entornos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapeo de Ramas a Entornos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-flujo-de-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de Flujo de Despliegue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalles-de-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Detalles de Configuración
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Detalles de Configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vinculacion-frontend-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vinculación Frontend - Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-servidores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Servidores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puntos-criticos-para-desarrolladores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Puntos Críticos para Desarrolladores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Puntos Críticos para Desarrolladores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-seleccion-de-rama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Selección de Rama
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-confusion-de-nombres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Confusión de Nombres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-tenancy-hibrido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Multi-tenancy Híbrido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guias/convenciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otros/recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mapa-de-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Mapa de Infraestructura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ Mapa de Infraestructura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-topologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de Topología
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bases-de-datos-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bases de Datos (SQL Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-despliegue-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Estrategia de Despliegue (CI/CD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Estrategia de Despliegue (CI/CD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapeo-de-ramas-a-entornos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapeo de Ramas a Entornos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-flujo-de-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de Flujo de Despliegue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalles-de-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Detalles de Configuración
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Detalles de Configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vinculacion-frontend-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vinculación Frontend - Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-servidores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Servidores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puntos-criticos-para-desarrolladores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Puntos Críticos para Desarrolladores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Puntos Críticos para Desarrolladores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-seleccion-de-rama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Selección de Rama
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-confusion-de-nombres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Confusión de Nombres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-tenancy-hibrido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Multi-tenancy Híbrido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="infraestructura-y-despliegue">🌍 Infraestructura y Despliegue</h1>
+<p>Este documento detalla la <strong>topología de servidores, bases de datos y estrategia de despliegue</strong> del proyecto Fichaje.</p>
+<p>Debido a la evolución histórica del proyecto, la infraestructura actual es compleja y opera en un <strong>estado híbrido</strong> entre modelos Single-tenant (Legacy) y Multi-tenant (Moderno).</p>
+<h2 id="mapa-de-infraestructura">🗺️ Mapa de Infraestructura</h2>
+<h3 id="resumen-de-topologia">Resumen de Topología</h3>
+<p>Actualmente el ecosistema se compone de:</p>
+<ul>
+<li><strong>6 Bases de Datos SQL Server</strong> independientes.</li>
+<li><strong>5 Entornos de Producción</strong> (Pares Backend + Frontend).</li>
+<li><strong>1 Entorno de Pruebas</strong> (Local).</li>
+</ul>
+<h3 id="bases-de-datos-sql-server">Bases de Datos (SQL Server)</h3>
+<table>
+<thead>
+<tr>
+<th>Base de Datos</th>
+<th>Tipo</th>
+<th>Cliente / Uso</th>
+<th>Estado</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>appPruebas</code></td>
+<td>🟡 Dev</td>
+<td>Pruebas / Local</td>
+<td>Activo</td>
+<td>Base de datos para desarrollo local. Sin servidor de producción asociado.</td>
+</tr>
+<tr>
+<td><code>appLaTorre</code></td>
+<td>🟢 Prod</td>
+<td><strong>Uso Interno</strong></td>
+<td>Legacy</td>
+<td>Instancia histórica para uso interno de la empresa. <em>Nombre confuso: no confundir con cliente LaTorre.</em></td>
+</tr>
+<tr>
+<td><code>AppFichaje</code></td>
+<td>🟢 Prod</td>
+<td>Cliente: <strong>LaTorre</strong></td>
+<td>Legacy</td>
+<td>Instancia dedicada exclusiva para el cliente LaTorre.</td>
+</tr>
+<tr>
+<td><code>ThrApp</code></td>
+<td>🟢 Prod</td>
+<td>Cliente: <strong>THR</strong></td>
+<td>Legacy</td>
+<td>Instancia dedicada exclusiva para el cliente THR.</td>
+</tr>
+<tr>
+<td><code>EzeqApp</code></td>
+<td>🟢 Prod</td>
+<td>Cliente: <strong>Ezeq</strong></td>
+<td>Legacy</td>
+<td>Instancia dedicada exclusiva para el cliente Ezeq.</td>
+</tr>
+<tr>
+<td><code>kong1App</code></td>
+<td>🟢 Prod</td>
+<td><strong>Multi-tenant</strong></td>
+<td><strong>Moderno</strong></td>
+<td>Instancia consolidada alojando a <strong>8 clientes</strong> y futuros. Es la arquitectura objetivo.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!NOTE] &gt; <strong>Estrategia de Migración</strong>: El objetivo a largo plazo es migrar los clientes de instancias dedicadas (<code>AppFichaje</code>, <code>ThrApp</code>, <code>EzeqApp</code>) hacia entornos consolidados como <code>kong1App</code> (o un futuro <code>kong2App</code>) para reducir costos y mantenimiento.</p>
+</blockquote>
+<hr />
+<h2 id="estrategia-de-despliegue-cicd">🚀 Estrategia de Despliegue (CI/CD)</h2>
+<p>El despliegue está automatizado mediante <strong>GitHub Actions</strong> y se basa en una estrategia de <strong>ramas por entorno</strong>.</p>
+<h3 id="repositorios">Repositorios</h3>
+<p>El código fuente se gestiona en el usuario <code>davidPayan8</code>. Existen repositorios separados para Backend y Frontend, pero comparten la misma lógica de ramas.</p>
+<h3 id="mapeo-de-ramas-a-entornos">Mapeo de Ramas a Entornos</h3>
+<p>Cada rama en el repositorio dispara un despliegue a un servidor específico que conecta a una base de datos específica.</p>
+<table>
+<thead>
+<tr>
+<th>Branch (Git)</th>
+<th>Servidor Destino (Back/Front)</th>
+<th>Base de Datos Conectada</th>
+<th>Apuntes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>Servidor LaTorre</td>
+<td><code>AppFichaje</code></td>
+<td><strong>¡Cuidado!</strong> <code>main</code> no es producción genérica, es específica para el cliente LaTorre.</td>
+</tr>
+<tr>
+<td><code>LaTorre</code></td>
+<td>Servidor Interno</td>
+<td><code>appLaTorre</code></td>
+<td>Para uso interno de la empresa.</td>
+</tr>
+<tr>
+<td><code>THR</code></td>
+<td>Servidor THR</td>
+<td><code>ThrApp</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Ezeq</code></td>
+<td>Servidor Ezeq</td>
+<td><code>EzeqApp</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>kong1</code></td>
+<td>Servidor Kong</td>
+<td><code>kong1App</code></td>
+<td>Rama principal para el desarrollo de la versión Multi-tenant.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="diagrama-de-flujo-de-despliegue">Diagrama de Flujo de Despliegue</h3>
+<pre class="mermaid"><code>graph LR
+    subgraph "GIT (davidPayan8)"
+        B_Main[Branch: main]
+        B_LaTorre[Branch: LaTorre]
+        B_THR[Branch: THR]
+        B_Ezeq[Branch: Ezeq]
+        B_Kong[Branch: kong1]
+    end
+
+    subgraph "CI/CD Pipeline"
+        Action[GitHub Actions]
+    end
+
+    subgraph "Infraestructura (5 Servidores)"
+        S_Fichaje[SRV: LaTorre]
+        S_LaTorre[SRV: Interno]
+        S_THR[SRV: THR]
+        S_Ezeq[SRV: Ezeq]
+        S_Kong[SRV: Multi-tenant]
+    end
+
+    subgraph "Persistencia (6 BDs)"
+        DB_Fichaje[(AppFichaje)]
+        DB_LaTorre[(appLaTorre)]
+        DB_THR[(ThrApp)]
+        DB_Ezeq[(EzeqApp)]
+        DB_Kong[(kong1App)]
+    end
+
+    B_Main --&gt; Action --&gt; S_Fichaje --&gt; DB_Fichaje
+    B_LaTorre --&gt; Action --&gt; S_LaTorre --&gt; DB_LaTorre
+    B_THR --&gt; Action --&gt; S_THR --&gt; DB_THR
+    B_Ezeq --&gt; Action --&gt; S_Ezeq --&gt; DB_Ezeq
+    B_Kong --&gt; Action --&gt; S_Kong --&gt; DB_Kong</code></pre>
+<hr />
+<h2 id="detalles-de-configuracion">⚙️ Detalles de Configuración</h2>
+<h3 id="vinculacion-frontend-backend">Vinculación Frontend - Backend</h3>
+<p>Dado que hay 5 servidores de backend diferentes, cada frontend debe saber a cuál conectar.</p>
+<ul>
+<li><strong>Build Time</strong>: La URL de la API se "quema" en los archivos de entorno (<code>environment.prod.ts</code>) durante la compilación o mediante sustitución de variables en el pipeline de CI/CD.</li>
+<li><strong>Ramas diferentes</strong>: Es probable que cada rama del frontend tenga configurada la URL de su API correspondiente directamente en el código o configuración.</li>
+</ul>
+<h3 id="gestion-de-servidores">Gestión de Servidores</h3>
+<ul>
+<li><strong>Single-tenant (Legacy)</strong>: Se levanta un servidor completo (Node.js proceso + Servidor estático/SSR) por cada cliente grande. Esto escala mal en costes y gestión.</li>
+<li><strong>Multi-tenant (Kong)</strong>: Un solo servidor atiende a N empresas. La separación de datos se hace por lógica de aplicación (<code>id_empresa</code>) en lugar de por infraestructura física.</li>
+</ul>
+<h2 id="puntos-criticos-para-desarrolladores">⚠️ Puntos Críticos para Desarrolladores</h2>
+<h3 id="1-seleccion-de-rama">1. Selección de Rama</h3>
+<p>Cuando desarrolles una nueva feature, <strong>¿dónde debe ir?</strong></p>
+<ul>
+<li>Si es core: Normalmente a <code>kong1</code> y luego cherry-pick/merge a las demás.</li>
+<li>Si es hotfix para un cliente: A su rama específica (<code>THR</code>, <code>Ezeq</code>, etc.).</li>
+</ul>
+<h3 id="2-confusion-de-nombres">2. Confusión de Nombres</h3>
+<ul>
+<li><code>appLaTorre</code> (BD) -&gt; Es para uso interno.</li>
+<li><code>AppFichaje</code> (BD) -&gt; Es para el cliente LaTorre.</li>
+<li>Rama <code>main</code> -&gt; Despliega al cliente LaTorre (no es el trunk genérico habitual).</li>
+</ul>
+<h3 id="3-multi-tenancy-hibrido">3. Multi-tenancy Híbrido</h3>
+<p>Al codificar, <strong>SIEMPRE asume que estás en entorno multi-tenant</strong> (filtra por empresa), incluso si el código corre en un servidor dedicado. Esto facilita la migración futura a <code>kong1App</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

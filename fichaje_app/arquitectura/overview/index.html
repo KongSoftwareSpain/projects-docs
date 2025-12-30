@@ -1,0 +1,2433 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../onboarding/entorno/">
+      
+      
+        <link rel="next" href="../infraestructura/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Overview - Project Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vista-general-de-la-arquitectura" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../.." title="Project Docs" class="md-header__button md-logo" aria-label="Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Project Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Project Docs" class="md-nav__button md-logo" aria-label="Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Project Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyecto Ejemplo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proyecto Ejemplo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visión general
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Onboarding
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/onboarding/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/onboarding/entorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/arquitectura/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/arquitectura/decisiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/guias/convenciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/otros/recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichaje App
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fichaje App
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visión general
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Onboarding
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/entorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏛️ Arquitectura del Sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Flujo de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Flujo de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-autenticacion-y-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Autenticación y Autorización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-flujo-de-fichaje-asistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Flujo de Fichaje (Asistencia)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-gestion-de-proyectos-y-ordenes-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Gestión de Proyectos y Órdenes de Trabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-de-modulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Estructura de Módulos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Estructura de Módulos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-express-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend (Express API)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend (Angular)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-autenticacion-y-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔐 Sistema de Autenticación y Autorización
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Sistema de Autenticación y Autorización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niveles-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveles de Acceso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Niveles de Acceso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-superadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Superadmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo de Autorización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy-multi-empresa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-tenancy (Multi-empresa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗄️ Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esquema-principal-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esquema Principal (SQL Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orm-sequelize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ORM: Sequelize
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 API REST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌐 API REST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estructura-de-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura de URLs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formato-de-respuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formato de Respuestas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📱 Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manejo-de-fechas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Manejo de Fechas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#almacenamiento-de-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Almacenamiento de Archivos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Almacenamiento de Archivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-blob-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Blob Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infraestructura-y-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Infraestructura y Despliegue
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌍 Infraestructura y Despliegue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-rapido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen Rápido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infraestructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guias/convenciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otros/recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏛️ Arquitectura del Sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Flujo de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Flujo de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-autenticacion-y-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Autenticación y Autorización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-flujo-de-fichaje-asistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Flujo de Fichaje (Asistencia)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-gestion-de-proyectos-y-ordenes-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Gestión de Proyectos y Órdenes de Trabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-de-modulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Estructura de Módulos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Estructura de Módulos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-express-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend (Express API)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend (Angular)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-autenticacion-y-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔐 Sistema de Autenticación y Autorización
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Sistema de Autenticación y Autorización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niveles-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveles de Acceso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Niveles de Acceso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-superadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Superadmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo de Autorización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy-multi-empresa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-tenancy (Multi-empresa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗄️ Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esquema-principal-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esquema Principal (SQL Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orm-sequelize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ORM: Sequelize
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 API REST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌐 API REST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estructura-de-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura de URLs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formato-de-respuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formato de Respuestas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📱 Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manejo-de-fechas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Manejo de Fechas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#almacenamiento-de-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Almacenamiento de Archivos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Almacenamiento de Archivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-blob-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Blob Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infraestructura-y-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Infraestructura y Despliegue
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌍 Infraestructura y Despliegue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-rapido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen Rápido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vista-general-de-la-arquitectura">Vista General de la Arquitectura</h1>
+<h2 id="arquitectura-del-sistema">🏛️ Arquitectura del Sistema</h2>
+<p>El proyecto <strong>Fichaje</strong> sigue una arquitectura <strong>cliente-servidor</strong> con separación clara entre frontend y backend.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph "Cliente"
+        A[Angular App&lt;br/&gt;PWA]
+    end
+
+    subgraph "Servidor"
+        B[Express API&lt;br/&gt;REST]
+        C[Sequelize ORM]
+    end
+
+    subgraph "Almacenamiento"
+        D[(SQL Server&lt;br/&gt;Database)]
+        E[Azure Blob&lt;br/&gt;Storage]
+    end
+
+    subgraph "Legacy"
+        F[(Access DB&lt;br/&gt;⚠️ Paralela)]
+    end
+
+    A --&gt;|HTTP/HTTPS| B
+    B --&gt; C
+    C --&gt; D
+    B -.-&gt;|Consultas directas| F
+    B --&gt; E
+
+    style F fill:#ff9999,stroke:#ff0000,stroke-width:2px
+    style A fill:#e1f5ff
+    style B fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e8f5e9</code></pre>
+<h2 id="flujo-de-datos">🔄 Flujo de Datos</h2>
+<h3 id="1-autenticacion-y-autorizacion">1. Autenticación y Autorización</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as Usuario
+    participant F as Frontend
+    participant A as API
+    participant DB as SQL Server
+
+    U-&gt;&gt;F: Login (user, password)
+    F-&gt;&gt;A: POST /auth/login
+    A-&gt;&gt;DB: Verificar credenciales
+    DB--&gt;&gt;A: Usuario + Empresa + Config
+    A--&gt;&gt;F: JWT Token + User Data
+    F-&gt;&gt;F: Guardar token (localStorage)
+    F-&gt;&gt;A: Requests con Authorization header
+    A-&gt;&gt;A: Verificar JWT (authMiddleware)
+    A--&gt;&gt;F: Respuesta autorizada</code></pre>
+<p><strong>Componentes clave:</strong></p>
+<ul>
+<li><strong>authMiddleware.js</strong>: Verifica el token JWT en cada petición</li>
+<li><strong>authorizeRol.js</strong>: Verifica permisos por rol (admin, superadmin, usuario)</li>
+<li><strong>superadminMiddleware.js</strong>: Protege rutas exclusivas de superadmin</li>
+</ul>
+<h3 id="2-flujo-de-fichaje-asistencia">2. Flujo de Fichaje (Asistencia)</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as Usuario
+    participant F as Frontend
+    participant A as API
+    participant DB as SQL Server
+
+    U-&gt;&gt;F: Click "Fichar Entrada"
+    F-&gt;&gt;F: Obtener geolocalización
+    F-&gt;&gt;A: POST /asistencia/fichar-entrada
+    A-&gt;&gt;DB: Verificar parte_auto (CONFIG_EMPRESA)
+
+    alt parte_auto = true
+        A-&gt;&gt;DB: Crear CONTROL_ASISTENCIAS
+        A-&gt;&gt;DB: Crear PARTES_TRABAJO (automático)
+        A--&gt;&gt;F: Fichaje + Parte creados
+    else parte_auto = false
+        A-&gt;&gt;DB: Crear CONTROL_ASISTENCIAS
+        A--&gt;&gt;F: Solo fichaje creado
+    end
+
+    F-&gt;&gt;U: Confirmación visual</code></pre>
+<p><strong>Tablas involucradas:</strong></p>
+<ul>
+<li><code>CONTROL_ASISTENCIAS</code>: Registro de entrada/salida</li>
+<li><code>PARTES_TRABAJO</code>: Partes de trabajo (si parte_auto está activo)</li>
+<li><code>CONFIG_EMPRESA</code>: Configuración por empresa</li>
+</ul>
+<h3 id="3-gestion-de-proyectos-y-ordenes-de-trabajo">3. Gestión de Proyectos y Órdenes de Trabajo</h3>
+<pre class="mermaid"><code>graph LR
+    A[PROYECTOS] --&gt; B[ORDEN_TRABAJO]
+    B --&gt; C[PARTES_TRABAJO]
+    B --&gt; D[CABECERA&lt;br/&gt;Albarán]
+    D --&gt; E[DETALLES_DOC&lt;br/&gt;Líneas]
+    D --&gt; F[COBROS_DOC]
+    C --&gt; G[PARTES_MATERIALES]
+
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e9</code></pre>
+<p><strong>Relaciones:</strong></p>
+<ol>
+<li>Un <strong>PROYECTO</strong> tiene múltiples <strong>ÓRDENES DE TRABAJO</strong></li>
+<li>Una <strong>ORDEN DE TRABAJO</strong> tiene:</li>
+<li>Múltiples <strong>PARTES DE TRABAJO</strong> (tiempo de empleados)</li>
+<li>Una <strong>CABECERA</strong> de albarán/factura</li>
+<li>La <strong>CABECERA</strong> contiene:</li>
+<li><strong>DETALLES_DOC</strong> (líneas de facturación)</li>
+<li><strong>COBROS_DOC</strong> (pagos recibidos)</li>
+</ol>
+<h2 id="estructura-de-modulos">📦 Estructura de Módulos</h2>
+<h3 id="backend-express-api">Backend (Express API)</h3>
+<div class="highlight"><pre><span></span><code>backend-AppServicios/
+├── server.js                 # Punto de entrada, configuración Express
+├── routes/                   # Definición de endpoints
+│   ├── authRoutes.js        # /auth/*
+│   ├── asistenciaRoutes.js  # /asistencia/*
+│   ├── proyectosRoutes.js   # /proyectos/*
+│   ├── parteRoutes.js       # /partes/*
+│   ├── albaranRoutes.js     # /albaran/*
+│   ├── notaGastoRoutes.js   # /nota-gasto/*
+│   └── ...
+├── controllers/              # Lógica de negocio
+│   ├── asistenciaController.js
+│   ├── proyectosController.js
+│   ├── albaranController.js
+│   └── ...
+├── middleware/               # Middlewares
+│   ├── authMiddleware.js    # Verificación JWT
+│   ├── authorizeRol.js      # Control de roles
+│   └── superadminMiddleware.js
+├── Model/                    # Modelos Sequelize
+│   ├── init-models.js       # Inicialización de modelos
+│   ├── USUARIOS.js
+│   ├── CONTROL_ASISTENCIAS.js
+│   ├── PROYECTOS.js
+│   └── ...
+├── config/
+│   ├── dbConfig.js          # Configuración Sequelize
+│   └── ftpConfig.js
+└── utils/                    # Utilidades
+    └── dateUtils.js
+</code></pre></div>
+<p><strong>Patrón de diseño</strong>: MVC (Model-View-Controller)</p>
+<ul>
+<li><strong>Routes</strong>: Definen endpoints y aplican middlewares</li>
+<li><strong>Controllers</strong>: Implementan la lógica de negocio</li>
+<li><strong>Models</strong>: Representan tablas de la base de datos</li>
+</ul>
+<h3 id="frontend-angular">Frontend (Angular)</h3>
+<div class="highlight"><pre><span></span><code>front-AppServicios/src/app/
+├── app.routes.ts            # Configuración de rutas
+├── pages/                   # Páginas principales
+│   ├── fichar-asistencia/
+│   ├── page-proyectos/
+│   ├── page-ote/           # Órdenes de trabajo
+│   ├── listado-fichaje/
+│   └── ...
+├── components/              # Componentes reutilizables
+│   ├── modal-*/
+│   ├── tabla-*/
+│   └── ...
+├── services/                # Servicios HTTP
+│   ├── auth.service.ts
+│   ├── asistencia.service.ts
+│   ├── proyecto.service.ts
+│   └── ...
+├── guards/                  # Guards de navegación
+│   ├── auth.guard.ts
+│   ├── role.guard.ts
+│   └── ...
+├── interceptors/            # Interceptores HTTP
+│   ├── auth.interceptor.ts
+│   └── error.interceptor.ts
+└── interface/               # Interfaces TypeScript
+    ├── usuario.ts
+    ├── proyecto.ts
+    └── ...
+</code></pre></div>
+<p><strong>Patrón de diseño</strong>: Component-based architecture</p>
+<ul>
+<li><strong>Pages</strong>: Componentes de página completa</li>
+<li><strong>Components</strong>: Componentes reutilizables</li>
+<li><strong>Services</strong>: Comunicación con API y estado compartido</li>
+<li><strong>Guards</strong>: Control de acceso a rutas</li>
+<li><strong>Interceptors</strong>: Procesamiento global de peticiones HTTP</li>
+</ul>
+<h2 id="sistema-de-autenticacion-y-autorizacion">🔐 Sistema de Autenticación y Autorización</h2>
+<h3 id="niveles-de-acceso">Niveles de Acceso</h3>
+<h4 id="1-superadmin">1. Superadmin</h4>
+<p>Usuario interno para gestión global de empresas.</p>
+<h4 id="2-admin">2. Admin</h4>
+<p>Administrador de empresa (Gestión si no hay vínculo ERP).</p>
+<h4 id="3-usuario">3. Usuario</h4>
+<p>Usuario estándar del sistema.</p>
+<p><strong>Categorías Laborales (Funcionalidad extra):</strong></p>
+<ul>
+<li><strong>Técnico</strong>: Permisos extra en gestión de OTs.</li>
+<li><strong>Operario/Administrativo</strong>: Funcionalidad estándar.</li>
+</ul>
+<h3 id="flujo-de-autorizacion">Flujo de Autorización</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// En el backend</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+<span class="w">  </span><span class="s2">&quot;/ruta-protegida&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">authenticateToken</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1. Verifica JWT</span>
+<span class="w">  </span><span class="nx">authorizeRol</span><span class="p">([</span><span class="s2">&quot;admin&quot;</span><span class="p">]),</span><span class="w"> </span><span class="c1">// 2. Verifica rol</span>
+<span class="w">  </span><span class="nx">controller</span><span class="p">.</span><span class="nx">metodo</span><span class="w"> </span><span class="c1">// 3. Ejecuta lógica</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3 id="multi-tenancy-multi-empresa">Multi-tenancy (Multi-empresa)</h3>
+<p>El sistema soporta múltiples empresas:</p>
+<ul>
+<li>Cada usuario pertenece a una <strong>empresa</strong> (<code>id_empresa</code>)</li>
+<li>El token JWT incluye el <code>id_empresa</code></li>
+<li>Todas las consultas filtran por empresa automáticamente</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Ejemplo en controller</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">empresa</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span><span class="w"> </span><span class="c1">// Del JWT</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">proyectos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">PROYECTOS</span><span class="p">.</span><span class="nx">findAll</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">where</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id_empresa</span><span class="o">:</span><span class="w"> </span><span class="nx">empresa</span><span class="w"> </span><span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="base-de-datos">🗄️ Base de Datos</h2>
+<h3 id="esquema-principal-sql-server">Esquema Principal (SQL Server)</h3>
+<p><strong>Tablas principales:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tabla</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EMPRESA</code></td>
+<td>Datos de empresas</td>
+</tr>
+<tr>
+<td><code>CONFIG_EMPRESA</code></td>
+<td>Configuración por empresa</td>
+</tr>
+<tr>
+<td><code>USUARIOS</code></td>
+<td>Usuarios del sistema</td>
+</tr>
+<tr>
+<td><code>CONTROL_ASISTENCIAS</code></td>
+<td>Fichajes de entrada/salida</td>
+</tr>
+<tr>
+<td><code>PROYECTOS</code></td>
+<td>Proyectos</td>
+</tr>
+<tr>
+<td><code>ORDEN_TRABAJO</code></td>
+<td>Órdenes de trabajo</td>
+</tr>
+<tr>
+<td><code>PARTES_TRABAJO</code></td>
+<td>Partes de trabajo de empleados</td>
+</tr>
+<tr>
+<td><code>CABECERA</code></td>
+<td>Cabeceras de albaranes</td>
+</tr>
+<tr>
+<td><code>DETALLES_DOC</code></td>
+<td>Líneas de albaranes</td>
+</tr>
+<tr>
+<td><code>VACACIONES</code></td>
+<td>Solicitudes de vacaciones</td>
+</tr>
+<tr>
+<td><code>NOTIFICACIONES</code></td>
+<td>Sistema de notificaciones</td>
+</tr>
+</tbody>
+</table>
+<h3 id="orm-sequelize">ORM: Sequelize</h3>
+<ul>
+<li><strong>Versión</strong>: 6.37.7</li>
+<li><strong>Dialecto</strong>: mssql (SQL Server)</li>
+<li><strong>Timezone</strong>: UTC (+00:00)</li>
+<li><strong>Generación de modelos</strong>: Automática con <code>sequelize-auto</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Ejemplo de modelo</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">USUARIOS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sequelize</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span>
+<span class="w">  </span><span class="s2">&quot;USUARIOS&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">DataTypes</span><span class="p">.</span><span class="nx">INTEGER</span><span class="p">,</span><span class="w"> </span><span class="nx">primaryKey</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">nombre</span><span class="o">:</span><span class="w"> </span><span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">id_empresa</span><span class="o">:</span><span class="w"> </span><span class="nx">DataTypes</span><span class="p">.</span><span class="nx">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tableName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USUARIOS&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">timestamps</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<h2 id="api-rest">🌐 API REST</h2>
+<h3 id="estructura-de-urls">Estructura de URLs</h3>
+<div class="highlight"><pre><span></span><code>Base URL: http://localhost:3000
+
+Autenticación:
+POST   /auth/login
+POST   /auth/refresh
+
+Asistencia:
+POST   /asistencia/fichar-entrada
+POST   /asistencia/fichar-salida
+GET    /asistencia/partes-usuario
+
+Proyectos:
+GET    /proyectos
+GET    /proyectos/:id
+POST   /proyectos
+PUT    /proyectos/:id
+
+Partes de Trabajo:
+GET    /partes
+POST   /partes
+PUT    /partes/:id
+
+Albaranes:
+GET    /albaran/cabecera
+POST   /albaran/cabecera
+GET    /albaran/detalles
+POST   /albaran/detalles
+</code></pre></div>
+<h3 id="formato-de-respuestas">Formato de Respuestas</h3>
+<p><strong>Éxito:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Operación exitosa&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Error:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mensaje de error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Detalles adicionales&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Paginación:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;pagination&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;totalPages&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="progressive-web-app-pwa">📱 Progressive Web App (PWA)</h2>
+<p>El frontend está configurado como PWA:</p>
+<ul>
+<li><strong>Service Worker</strong>: Habilitado (<code>@angular/service-worker</code>)</li>
+<li><strong>Manifest</strong>: <code>ngsw-config.json</code></li>
+<li><strong>Capacidades offline</strong>: Caché de assets estáticos</li>
+</ul>
+<h2 id="manejo-de-fechas">🔄 Manejo de Fechas</h2>
+<blockquote>
+<p>[!IMPORTANT] &gt; <strong>TRANSICIÓN EN CURSO</strong>: El proyecto está migrando de <code>js-joda</code> a <code>date-fns</code>. Código nuevo debe usar <code>date-fns</code>.</p>
+</blockquote>
+<p><strong>Librería actual (código nuevo):</strong> date-fns + date-fns-tz</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Backend</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">format</span><span class="p">,</span><span class="w"> </span><span class="nx">parseISO</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;date-fns&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">utcToZonedTime</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;date-fns-tz&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">utcToZonedTime</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;Europe/Madrid&quot;</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Frontend</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">format</span><span class="p">,</span><span class="w"> </span><span class="nx">parseISO</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;date-fns&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">utcToZonedTime</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;date-fns-tz&quot;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">utcToZonedTime</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;Europe/Madrid&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Código legacy:</strong> Aún encontrarás <code>js-joda</code> en partes antiguas del código.</p>
+<p><strong>Zona horaria</strong>: Europa/Madrid (configurada en ambos lados)</p>
+<h2 id="almacenamiento-de-archivos">📊 Almacenamiento de Archivos</h2>
+<h3 id="azure-blob-storage">Azure Blob Storage</h3>
+<p>Usado para almacenar:</p>
+<ul>
+<li>Tickets de notas de gasto</li>
+<li>Documentos adjuntos</li>
+<li>Exportaciones de Excel</li>
+</ul>
+<p><strong>Configuración</strong> (variables de entorno):</p>
+<ul>
+<li><code>AZURE_STORAGE_CONNECTION_STRING</code></li>
+<li><code>AZURE_STORAGE_CONTAINER_NAME</code></li>
+</ul>
+<h2 id="infraestructura-y-despliegue">🌍 Infraestructura y Despliegue</h2>
+<blockquote>
+<p>[!IMPORTANT]
+La infraestructura es compleja debido a la coexistencia de sistemas legacy y modernos.
+<strong>Consulta el documento dedicado:</strong> 📄 <a href="../infraestructura/">Infraestructura y Despliegue</a></p>
+</blockquote>
+<h3 id="resumen-rapido">Resumen Rápido</h3>
+<ul>
+<li><strong>6 Bases de Datos</strong>: Mezcla de dedicadas y multi-tenant.</li>
+<li><strong>5 Entornos de Producción</strong>: Gestionados por ramas de Git (<code>main</code>, <code>LaTorre</code>, <code>kong1</code>, etc.).</li>
+<li><strong>Modelo Híbrido</strong>: Transición de "Servidor por Cliente" a "Multi-tenant".</li>
+</ul>
+<p>Ver detalle completo en <a href="../infraestructura/">Infraestructura</a>.</p>
+<hr />
+<p><strong>Siguiente</strong>: <a href="../decisiones/">Decisiones Arquitectónicas</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

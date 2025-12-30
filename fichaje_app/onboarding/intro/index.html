@@ -1,0 +1,2681 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../entorno/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introducción - Project Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion-al-proyecto-fichaje" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../.." title="Project Docs" class="md-header__button md-logo" aria-label="Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Project Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Project Docs" class="md-nav__button md-logo" aria-label="Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Project Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyecto Ejemplo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proyecto Ejemplo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visión general
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Onboarding
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/onboarding/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/onboarding/entorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/arquitectura/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/arquitectura/decisiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/guias/convenciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proyecto_ejemplo/otros/recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichaje App
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fichaje App
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visión general
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Onboarding
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-fichaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 ¿Qué es Fichaje?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto-del-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏢 Contexto del Negocio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏢 Contexto del Negocio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-empresa-multi-tenancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-empresa (Multi-tenancy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-de-usuario-permisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles de Usuario (Permisos)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roles de Usuario (Permisos)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-superadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Superadmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-admin-administrador-de-empresa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Admin (Administrador de Empresa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorias-laborales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorías Laborales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Categorías Laborales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-operario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Operario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tecnico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Técnico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-administrativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Administrativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceptos-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Conceptos Clave
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Conceptos Clave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fichaje-y-asistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fichaje y Asistencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-proyectos-y-ordenes-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Proyectos y Órdenes de Trabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-parte-auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Parte Auto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-notas-de-gasto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Notas de Gasto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Módulos Principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Módulos Principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-tecnologico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Stack Tecnológico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Stack Tecnológico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base de Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primeros-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Primeros Pasos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Primeros Pasos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-leer-la-documentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Leer la Documentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-tu-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configurar tu Entorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-explorar-el-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Explorar el Código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hacer-tu-primera-contribucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hacer tu Primera Contribución
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advertencias-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Advertencias Importantes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Advertencias Importantes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-de-datos-access-critico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔴 Base de Datos Access (CRÍTICO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manejo-de-fechas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Manejo de Fechas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Multi-tenancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-y-ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📞 Recursos y Ayuda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 Recursos y Ayuda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-interna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentación Interna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-externa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentación Externa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equipo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glosario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Glosario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-de-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Checklist de Onboarding
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitectura/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitectura/infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infraestructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitectura/decisiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guias/convenciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../otros/recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-fichaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 ¿Qué es Fichaje?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto-del-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏢 Contexto del Negocio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏢 Contexto del Negocio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-empresa-multi-tenancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-empresa (Multi-tenancy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-de-usuario-permisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles de Usuario (Permisos)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roles de Usuario (Permisos)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-superadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Superadmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-admin-administrador-de-empresa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Admin (Administrador de Empresa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorias-laborales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorías Laborales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Categorías Laborales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-operario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Operario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tecnico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Técnico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-administrativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Administrativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceptos-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Conceptos Clave
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Conceptos Clave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fichaje-y-asistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fichaje y Asistencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-proyectos-y-ordenes-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Proyectos y Órdenes de Trabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-parte-auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Parte Auto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-notas-de-gasto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Notas de Gasto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Módulos Principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Módulos Principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-tecnologico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Stack Tecnológico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Stack Tecnológico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base de Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primeros-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Primeros Pasos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Primeros Pasos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-leer-la-documentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Leer la Documentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-tu-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configurar tu Entorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-explorar-el-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Explorar el Código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hacer-tu-primera-contribucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hacer tu Primera Contribución
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advertencias-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Advertencias Importantes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Advertencias Importantes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-de-datos-access-critico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔴 Base de Datos Access (CRÍTICO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manejo-de-fechas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Manejo de Fechas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Multi-tenancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-y-ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📞 Recursos y Ayuda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 Recursos y Ayuda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-interna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentación Interna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentacion-externa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentación Externa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equipo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glosario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Glosario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-de-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Checklist de Onboarding
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduccion-al-proyecto-fichaje">Introducción al Proyecto Fichaje</h1>
+<p>¡Bienvenido al equipo de desarrollo de <strong>Fichaje</strong>! 👋</p>
+<p>Esta guía te ayudará a entender el proyecto y comenzar a contribuir rápidamente.</p>
+<h2 id="que-es-fichaje">🎯 ¿Qué es Fichaje?</h2>
+<p><strong>Fichaje</strong> es una aplicación empresarial completa para la gestión integral de servicios y recursos humanos. Permite a las empresas:</p>
+<ul>
+<li>⏰ <strong>Control de Asistencia</strong>: Fichaje de entrada/salida con geolocalización</li>
+<li>📊 <strong>Gestión de Proyectos</strong>: Proyectos, órdenes de trabajo y asignaciones</li>
+<li>📝 <strong>Partes de Trabajo</strong>: Seguimiento de tiempo por proyecto/actividad</li>
+<li>💰 <strong>Notas de Gasto</strong>: Gestión de gastos con tickets digitales</li>
+<li>📄 <strong>Albaranes</strong>: Facturación y cobros</li>
+<li>🏖️ <strong>Vacaciones</strong>: Solicitudes y aprobaciones</li>
+<li>📈 <strong>Estadísticas</strong>: Reportes y análisis de datos</li>
+</ul>
+<h2 id="contexto-del-negocio">🏢 Contexto del Negocio</h2>
+<h3 id="multi-empresa-multi-tenancy">Multi-empresa (Multi-tenancy)</h3>
+<p>El sistema está diseñado para dar servicio a <strong>múltiples empresas</strong> desde una única instalación:</p>
+<ul>
+<li>Cada empresa tiene su propia configuración</li>
+<li>Los datos están completamente aislados entre empresas</li>
+<li>Un <strong>superadmin</strong> gestiona todas las empresas</li>
+<li>Cada empresa tiene sus propios <strong>administradores</strong></li>
+</ul>
+<h3 id="roles-de-usuario-permisos">Roles de Usuario (Permisos)</h3>
+<p>El sistema maneja 3 roles principales de acceso:</p>
+<h4 id="1-superadmin">1. Superadmin</h4>
+<ul>
+<li>Rol interno de nuestra empresa (desarrolladora/gestora).</li>
+<li>Controla el alta y gestión de las empresas clientes.</li>
+</ul>
+<h4 id="2-admin-administrador-de-empresa">2. Admin (Administrador de Empresa)</h4>
+<ul>
+<li>Acceso al panel de gestión de la empresa.</li>
+<li><strong>Nota importante</strong>: Solo disponible si la empresa <strong>NO está vinculada al ERP</strong> (o funcionalidad limitada si lo está).</li>
+</ul>
+<h4 id="3-usuario">3. Usuario</h4>
+<ul>
+<li>Acceso básico a la aplicación (fichaje, partes, etc.).</li>
+</ul>
+<p><em>(Ya no existen roles específicos de "Manager" o "RRHH")</em></p>
+<h3 id="categorias-laborales">Categorías Laborales</h3>
+<p>Más allá de los permisos de acceso (Roles), cada usuario tiene una <strong>categoría profesional</strong> que define su operativa diaria:</p>
+<h4 id="1-operario">1. Operario</h4>
+<ul>
+<li>Realiza fichajes y partes de trabajo estándar.</li>
+</ul>
+<h4 id="2-tecnico">2. Técnico</h4>
+<ul>
+<li>Tiene permisos adicionales sobre <strong>Órdenes de Trabajo</strong> (OTs).</li>
+<li>Puede realizar acciones técnicas específicas en las OTs asignadas.</li>
+</ul>
+<h4 id="3-administrativo">3. Administrativo</h4>
+<ul>
+<li>Actualmente funcionalmente igual al resto, reservado para uso futuro.</li>
+</ul>
+<h2 id="conceptos-clave">🔑 Conceptos Clave</h2>
+<h3 id="1-fichaje-y-asistencia">1. Fichaje y Asistencia</h3>
+<p>Los empleados registran su entrada y salida mediante la aplicación:</p>
+<div class="highlight"><pre><span></span><code>Usuario → Fichar Entrada → CONTROL_ASISTENCIAS (BD)
+                         ↓
+                    (si parte_auto = true)
+                         ↓
+                    PARTES_TRABAJO (BD)
+</code></pre></div>
+<p><strong>Características:</strong></p>
+<ul>
+<li>Geolocalización obligatoria</li>
+<li>Validación de horarios</li>
+<li>Creación automática de partes (opcional por empresa)</li>
+</ul>
+<h3 id="2-proyectos-y-ordenes-de-trabajo">2. Proyectos y Órdenes de Trabajo</h3>
+<p>Jerarquía de trabajo:</p>
+<div class="highlight"><pre><span></span><code>PROYECTO
+  └── ORDEN_TRABAJO (OT)
+        ├── PARTES_TRABAJO (tiempo empleados)
+        └── CABECERA (albarán/factura)
+              ├── DETALLES_DOC (líneas)
+              └── COBROS_DOC (pagos)
+</code></pre></div>
+<p><strong>Flujo típico:</strong></p>
+<ol>
+<li>Se crea un <strong>PROYECTO</strong> (ej: "Instalación eléctrica Edificio A")</li>
+<li>Se generan <strong>ÓRDENES DE TRABAJO</strong> (ej: "OT-001: Cableado planta 1")</li>
+<li>Los empleados registran <strong>PARTES DE TRABAJO</strong> en las OTs</li>
+<li>Al finalizar, se genera <strong>ALBARÁN</strong> con materiales y mano de obra</li>
+<li>Se registran <strong>COBROS</strong> del cliente</li>
+</ol>
+<h3 id="3-parte-auto">3. Parte Auto</h3>
+<p>Configuración importante por empresa (<code>CONFIG_EMPRESA.parte_auto</code>):</p>
+<ul>
+<li><strong>true</strong>: Al fichar entrada/salida, se crea automáticamente un parte de trabajo</li>
+<li><strong>false</strong>: El empleado debe crear manualmente los partes</li>
+</ul>
+<p><strong>Impacto en el código:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// En asistenciaController.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">parteAuto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">checkParteAuto</span><span class="p">(</span><span class="nx">empresa</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">parteAuto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Crear parte automáticamente</span>
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">PARTES_TRABAJO</span><span class="p">.</span><span class="nx">create</span><span class="p">({...});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4-notas-de-gasto">4. Notas de Gasto</h3>
+<p>Los empleados pueden:</p>
+<ul>
+<li>Crear notas de gasto</li>
+<li>Añadir líneas de gasto</li>
+<li>Adjuntar tickets (Azure Blob Storage)</li>
+<li>Enviar a aprobación</li>
+</ul>
+<p><strong>Estados:</strong></p>
+<ul>
+<li><code>borrador</code>: En edición</li>
+<li><code>pendiente</code>: Enviada a aprobación</li>
+<li><code>aprobada</code>: Aprobada</li>
+<li><code>rechazada</code>: Rechazada</li>
+</ul>
+<h2 id="modulos-principales">📚 Módulos Principales</h2>
+<h3 id="backend">Backend</h3>
+<table>
+<thead>
+<tr>
+<th>Módulo</th>
+<th>Descripción</th>
+<th>Archivos clave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>auth</strong></td>
+<td>Autenticación JWT</td>
+<td><code>authController.js</code>, <code>authMiddleware.js</code></td>
+</tr>
+<tr>
+<td><strong>asistencia</strong></td>
+<td>Fichajes</td>
+<td><code>asistenciaController.js</code>, <code>asistenciaRoutes.js</code></td>
+</tr>
+<tr>
+<td><strong>proyectos</strong></td>
+<td>Gestión de proyectos</td>
+<td><code>proyectosController.js</code></td>
+</tr>
+<tr>
+<td><strong>partes</strong></td>
+<td>Partes de trabajo</td>
+<td><code>parteController.js</code></td>
+</tr>
+<tr>
+<td><strong>albaran</strong></td>
+<td>Albaranes y facturación</td>
+<td><code>albaranController.js</code></td>
+</tr>
+<tr>
+<td><strong>nota-gasto</strong></td>
+<td>Notas de gasto</td>
+<td><code>notaGastoController.js</code></td>
+</tr>
+<tr>
+<td><strong>vacaciones</strong></td>
+<td>Solicitudes de vacaciones</td>
+<td><code>vacacionesController.js</code></td>
+</tr>
+<tr>
+<td><strong>empresa</strong></td>
+<td>Gestión de empresas</td>
+<td><code>empresaController.js</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="frontend">Frontend</h3>
+<table>
+<thead>
+<tr>
+<th>Módulo</th>
+<th>Descripción</th>
+<th>Ubicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fichar-asistencia</strong></td>
+<td>Pantalla de fichaje</td>
+<td><code>pages/fichar-asistencia/</code></td>
+</tr>
+<tr>
+<td><strong>page-proyectos</strong></td>
+<td>Listado de proyectos</td>
+<td><code>pages/page-proyectos/</code></td>
+</tr>
+<tr>
+<td><strong>page-ote</strong></td>
+<td>Órdenes de trabajo</td>
+<td><code>pages/page-ote/</code></td>
+</tr>
+<tr>
+<td><strong>listado-fichaje</strong></td>
+<td>Historial de fichajes</td>
+<td><code>pages/listado-fichaje/</code></td>
+</tr>
+<tr>
+<td><strong>admin</strong></td>
+<td>Panel de administración</td>
+<td><code>pages/admin/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="stack-tecnologico">🛠️ Stack Tecnológico</h2>
+<h3 id="backend_1">Backend</h3>
+<ul>
+<li><strong>Node.js</strong> + <strong>Express 5</strong>: API REST</li>
+<li><strong>Sequelize</strong>: ORM para SQL Server</li>
+<li><strong>JWT</strong>: Autenticación stateless</li>
+<li><strong>bcrypt</strong>: Hash de passwords</li>
+<li><strong>Azure Blob Storage</strong>: Almacenamiento de archivos</li>
+<li><strong>date-fns</strong>: Manejo de fechas (en transición desde js-joda)</li>
+</ul>
+<h3 id="frontend_1">Frontend</h3>
+<ul>
+<li><strong>Angular 19</strong>: Framework principal</li>
+<li><strong>Angular Material</strong>: Componentes UI</li>
+<li><strong>Bootstrap 5</strong>: Layout y utilidades</li>
+<li><strong>RxJS</strong>: Programación reactiva</li>
+<li><strong>ngx-charts</strong>: Gráficos</li>
+<li><strong>FullCalendar</strong>: Calendario de eventos</li>
+<li><strong>date-fns</strong>: Manejo de fechas (en transición desde js-joda)</li>
+</ul>
+<h3 id="base-de-datos">Base de Datos</h3>
+<ul>
+<li><strong>SQL Server</strong>: Base de datos principal</li>
+<li>⚠️ <strong>Access</strong> (Legacy): Algunas consultas aún usan Access (ver <a href="../../arquitectura/decisiones/">Decisiones Arquitectónicas</a>)</li>
+</ul>
+<h2 id="primeros-pasos">🚀 Primeros Pasos</h2>
+<h3 id="1-leer-la-documentacion">1. Leer la Documentación</h3>
+<p>Orden recomendado:</p>
+<ol>
+<li>✅ Esta introducción (estás aquí)</li>
+<li>📖 <a href="../entorno/">Configuración del Entorno</a></li>
+<li>🏗️ <a href="../../arquitectura/overview/">Vista General de la Arquitectura</a></li>
+<li>⚠️ <a href="../../arquitectura/decisiones/">Decisiones Arquitectónicas</a> - <strong>MUY IMPORTANTE</strong></li>
+<li>📝 <a href="../../guias/convenciones/">Convenciones de Código</a></li>
+</ol>
+<h3 id="2-configurar-tu-entorno">2. Configurar tu Entorno</h3>
+<p>Sigue la guía de <a href="../entorno/">Configuración del Entorno</a> para:</p>
+<ul>
+<li>Instalar dependencias</li>
+<li>Configurar base de datos</li>
+<li>Configurar variables de entorno</li>
+<li>Ejecutar el proyecto localmente</li>
+</ul>
+<h3 id="3-explorar-el-codigo">3. Explorar el Código</h3>
+<p><strong>Backend - Comienza por:</strong></p>
+<ol>
+<li><code>server.js</code> - Punto de entrada</li>
+<li><code>routes/authRoutes.js</code> - Rutas de autenticación</li>
+<li><code>controllers/asistenciaController.js</code> - Lógica de fichaje</li>
+<li><code>Model/init-models.js</code> - Modelos de BD</li>
+</ol>
+<p><strong>Frontend - Comienza por:</strong></p>
+<ol>
+<li><code>app.routes.ts</code> - Configuración de rutas</li>
+<li><code>services/auth.service.ts</code> - Servicio de autenticación</li>
+<li><code>pages/fichar-asistencia/</code> - Componente de fichaje</li>
+<li><code>interface/usuario.ts</code> - Interfaces principales</li>
+</ol>
+<h3 id="4-hacer-tu-primera-contribucion">4. Hacer tu Primera Contribución</h3>
+<p><strong>Sugerencias para empezar:</strong></p>
+<ol>
+<li>Corregir un bug pequeño</li>
+<li>Mejorar documentación de código</li>
+<li>Añadir validaciones</li>
+<li>Escribir tests (actualmente no hay)</li>
+</ol>
+<h2 id="advertencias-importantes">⚠️ Advertencias Importantes</h2>
+<h3 id="base-de-datos-access-critico">🔴 Base de Datos Access (CRÍTICO)</h3>
+<blockquote>
+<p>[!CAUTION]
+El sistema tiene una <strong>dependencia legacy con Access</strong> que coexiste con SQL Server. Lee <a href="../../arquitectura/decisiones/#-conexión-paralela-a-base-de-datos-access-legacy">Decisiones Arquitectónicas</a> antes de modificar cualquier código relacionado con configuración de empresa o emails.</p>
+</blockquote>
+<h3 id="manejo-de-fechas">🟡 Manejo de Fechas</h3>
+<p>El manejo de fechas con Sequelize y SQL Server es complicado:</p>
+<ul>
+<li>Usar <strong>date-fns</strong> para código nuevo (js-joda en código legacy)</li>
+<li>Ver <a href="../../arquitectura/decisiones/#-guía-de-fechas-con-sequelize">Guía de Fechas</a></li>
+</ul>
+<h3 id="multi-tenancy">🟡 Multi-tenancy</h3>
+<p><strong>SIEMPRE</strong> filtrar por empresa:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ✅ BIEN</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">empresa</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">datos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">TABLA</span><span class="p">.</span><span class="nx">findAll</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">where</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id_empresa</span><span class="o">:</span><span class="w"> </span><span class="nx">empresa</span><span class="w"> </span><span class="p">},</span>
+<span class="p">});</span>
+
+<span class="c1">// ❌ MAL - Expone datos de todas las empresas</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">datos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">TABLA</span><span class="p">.</span><span class="nx">findAll</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="testing">🧪 Testing</h2>
+<blockquote>
+<p>[!WARNING]
+El proyecto actualmente <strong>NO tiene tests automatizados</strong>. Esto es deuda técnica prioritaria.</p>
+</blockquote>
+<p><strong>Al desarrollar:</strong></p>
+<ul>
+<li>Prueba manualmente todos los casos</li>
+<li>Documenta los pasos de prueba</li>
+<li>Considera escribir tests para tu código nuevo</li>
+</ul>
+<h2 id="recursos-y-ayuda">📞 Recursos y Ayuda</h2>
+<h3 id="documentacion-interna">Documentación Interna</h3>
+<ul>
+<li><a href="../../arquitectura/overview/">Arquitectura</a></li>
+<li><a href="../../arquitectura/decisiones/">Decisiones Técnicas</a></li>
+<li><a href="../../guias/convenciones/">Convenciones</a></li>
+</ul>
+<h3 id="documentacion-externa">Documentación Externa</h3>
+<ul>
+<li><a href="https://sequelize.org/docs/v6/">Sequelize Docs</a></li>
+<li><a href="https://angular.dev/">Angular Docs</a></li>
+<li><a href="https://expressjs.com/">Express Docs</a></li>
+<li><a href="https://js-joda.github.io/js-joda/">js-joda Docs</a></li>
+</ul>
+<h3 id="equipo">Equipo</h3>
+<ul>
+<li>Contacta al equipo técnico interno para dudas</li>
+<li>Revisa el código existente como referencia</li>
+<li>Pregunta antes de hacer cambios grandes</li>
+</ul>
+<h2 id="glosario">🎓 Glosario</h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OT</strong></td>
+<td>Orden de Trabajo</td>
+</tr>
+<tr>
+<td><strong>Parte</strong></td>
+<td>Parte de trabajo (registro de tiempo)</td>
+</tr>
+<tr>
+<td><strong>Fichaje</strong></td>
+<td>Registro de entrada/salida</td>
+</tr>
+<tr>
+<td><strong>Parte Auto</strong></td>
+<td>Creación automática de partes al fichar</td>
+</tr>
+<tr>
+<td><strong>Multi-tenancy</strong></td>
+<td>Múltiples empresas en un sistema</td>
+</tr>
+<tr>
+<td><strong>Superadmin</strong></td>
+<td>Administrador global del sistema</td>
+</tr>
+</tbody>
+</table>
+<h2 id="checklist-de-onboarding">✅ Checklist de Onboarding</h2>
+<ul>
+<li>[ ] Leer toda la documentación</li>
+<li>[ ] Configurar entorno de desarrollo</li>
+<li>[ ] Ejecutar backend localmente</li>
+<li>[ ] Ejecutar frontend localmente</li>
+<li>[ ] Explorar la base de datos</li>
+<li>[ ] Hacer login como diferentes roles</li>
+<li>[ ] Probar flujo de fichaje</li>
+<li>[ ] Probar creación de proyecto</li>
+<li>[ ] Revisar código de un módulo completo</li>
+<li>[ ] Hacer tu primera contribución</li>
+</ul>
+<hr />
+<p><strong>Siguiente</strong>: <a href="../entorno/">Configuración del Entorno</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

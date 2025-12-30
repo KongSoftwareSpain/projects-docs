@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          persist-credentials: false
+          persist-credentials: false # no usar las credenciales por defecto
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -23,10 +23,12 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material
 
-      - name: Deploy to GitHub Pages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Configure Git with token
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          mkdocs gh-deploy --force --remote-url https://x-access-token:${GH_TOKEN}@github.com/KongSoftwareSpain/projects-docs.git
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/KongSoftwareSpain/projects-docs.git
+
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdocs gh-deploy --force

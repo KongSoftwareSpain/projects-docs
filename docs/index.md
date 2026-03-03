@@ -6,3 +6,4 @@ Bienvenido al índice general de documentación.
 
 - [Proyecto Ejemplo](proyecto_ejemplo/index.md) - **Ejemplo de referencia**: así es como se debe documentar.
 - [Fichaje App](fichaje_app/index.md)
+- [POSMamiPosada TPV](mamiposada/index.md)

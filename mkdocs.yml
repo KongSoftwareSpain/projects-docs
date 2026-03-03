@@ -40,3 +40,14 @@ nav:
           - Convenciones: fichaje_app/guias/convenciones.md
       - Otros:
           - Recursos: fichaje_app/otros/recursos.md
+  - BBDD Local:
+      - Visión general: bbdd_local/index.md
+      - Onboarding:
+          - Introducción: bbdd_local/onboarding/intro.md
+          - Entorno: bbdd_local/onboarding/entorno.md
+      - Arquitectura:
+          - Overview: bbdd_local/arquitectura/overview.md
+      - Guías:
+          - Convenciones: bbdd_local/guias/convenciones.md
+      - Otros:
+          - Recursos: bbdd_local/otros/recursos.md

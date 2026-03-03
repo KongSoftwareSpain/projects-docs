@@ -40,3 +40,15 @@ nav:
           - Convenciones: fichaje_app/guias/convenciones.md
       - Otros:
           - Recursos: fichaje_app/otros/recursos.md
+  - POSMamiPosada TPV:
+      - Visión general: mamiposada/index.md
+      - Onboarding:
+          - Introducción: mamiposada/onboarding/intro.md
+          - Entorno: mamiposada/onboarding/entorno.md
+      - Arquitectura:
+          - Overview: mamiposada/arquitectura/overview.md
+          - Decisiones: mamiposada/arquitectura/decisiones.md
+      - Guías:
+          - Convenciones: mamiposada/guias/convenciones.md
+      - Otros:
+          - Recursos: mamiposada/otros/recursos.md

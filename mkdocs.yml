@@ -1,4 +1,5 @@
 site_name: Project Docs
+site_url: https://KongSoftwareSpain.github.io/projects-docs/
 theme:
   name: material
   language: es
@@ -17,7 +18,7 @@ plugins:
   - search
   - encryptcontent:
       all_pages: true
-      password: !ENV [DOCS_PASSWORD]
+      password: ${DOCS_PASSWORD}
       summary: "Esta página está protegida. Por favor, introduce la contraseña para ver el contenido."
       placeholder: "Contraseña"
       action_button: "Entrar"

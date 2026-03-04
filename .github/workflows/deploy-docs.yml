@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material
+          pip install mkdocs mkdocs-material mkdocs-encryptcontent-plugin
 
       - name: Configure Git with token
         run: |
@@ -30,5 +30,7 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/KongSoftwareSpain/projects-docs.git
 
       - name: Deploy to GitHub Pages
+        env:
+          DOCS_PASSWORD: ${{ secrets.DOCS_PASSWORD }}
         run: |
           mkdocs gh-deploy --force

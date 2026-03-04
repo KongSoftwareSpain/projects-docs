@@ -13,6 +13,15 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
+plugins:
+  - search
+  - encryptcontent:
+      password: !ENV [DOCS_PASSWORD]
+      summary: "Esta página está protegida. Por favor, introduce la contraseña para ver el contenido."
+      placeholder: "Contraseña"
+      action_button: "Entrar"
+      invalid_password_message: "Contraseña incorrecta."
+
 nav:
   - Inicio: index.md
   - Proyecto Ejemplo:

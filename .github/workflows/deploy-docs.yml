@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-encryptcontent-plugin
+          pip install "mkdocs<2.0.0" mkdocs-material mkdocs-encryptcontent-plugin
 
       - name: Configure Git with token
         run: |

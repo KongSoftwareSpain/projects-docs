@@ -6,7 +6,7 @@ Debido a la evolución histórica del proyecto, la infraestructura actual es com
 
 ## 🗺️ Mapa de Infraestructura
 
-### Resumen de Topologí
+### Topología
 
 Actualmente el ecosistema se compone de:
 

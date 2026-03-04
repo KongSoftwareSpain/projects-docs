@@ -33,7 +33,11 @@ jobs:
         env:
           DOCS_PASSWORD: ${{ secrets.DOCS_PASSWORD }}
         run: |
-          sed -i "s#PASSWORD_PLACEHOLDER#$DOCS_PASSWORD#g" mkdocs.yml
+          if [ -z "$DOCS_PASSWORD" ]; then
+            echo "::error::The DOCS_PASSWORD secret is NOT defined in GitHub Secrets!"
+            exit 1
+          fi
+          sed -i "s#GLOBAL_PASSWORD_PLACEHOLDER#$DOCS_PASSWORD#g" mkdocs.yml
 
       - name: Deploy to GitHub Pages
         env:

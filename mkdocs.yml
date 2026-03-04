@@ -17,8 +17,7 @@ markdown_extensions:
 plugins:
   - search
   - encryptcontent:
-      all_pages: true
-      password: PASSWORD_PLACEHOLDER
+      global_password: GLOBAL_PASSWORD_PLACEHOLDER
       summary: "Esta página está protegida. Por favor, introduce la contraseña para ver el contenido."
       placeholder: "Contraseña"
       action_button: "Entrar"

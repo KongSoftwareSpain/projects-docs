@@ -18,7 +18,7 @@ plugins:
   - search
   - encryptcontent:
       all_pages: true
-      password: ${DOCS_PASSWORD}
+      password: PASSWORD_PLACEHOLDER
       summary: "Esta página está protegida. Por favor, introduce la contraseña para ver el contenido."
       placeholder: "Contraseña"
       action_button: "Entrar"

@@ -29,6 +29,12 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/KongSoftwareSpain/projects-docs.git
 
+      - name: Inject password into mkdocs.yml
+        env:
+          DOCS_PASSWORD: ${{ secrets.DOCS_PASSWORD }}
+        run: |
+          sed -i "s#PASSWORD_PLACEHOLDER#$DOCS_PASSWORD#g" mkdocs.yml
+
       - name: Deploy to GitHub Pages
         env:
           DOCS_PASSWORD: ${{ secrets.DOCS_PASSWORD }}

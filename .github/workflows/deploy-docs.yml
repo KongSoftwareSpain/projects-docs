@@ -39,7 +39,7 @@ jobs:
             echo "::error::The DOCS_PASSWORD secret is NOT defined in GitHub Secrets!"
             exit 1
           fi
-          sed -i "s#GLOBAL_PASSWORD_PLACEHOLDER#$DOCS_PASSWORD#g" mkdocs.yml
+          python -c "import os; content = open('mkdocs.yml').read(); open('mkdocs.yml', 'w').write(content.replace('GLOBAL_PASSWORD_PLACEHOLDER', os.environ['DOCS_PASSWORD']))"
 
       - name: Deploy to GitHub Pages
         env:

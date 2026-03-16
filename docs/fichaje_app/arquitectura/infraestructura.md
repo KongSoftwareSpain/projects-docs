@@ -107,8 +107,10 @@ La app Flutter se conecta al backend del entorno correspondiente usando una API 
 El bridge se despliega en las máquinas donde corre la aplicación VB6 del cliente.
 
 - El `bridge_api.exe` se distribuye manualmente al cliente
-- La configuración (URL de API + API Key) se almacena en un Access local (`datos.mdb`)
-- Cada entorno tiene su propia `VB6_API_KEY` en `.env`
+- La configuración se almacena en un Access local (`datos.mdb`), tabla `configuracion_api`:
+  - `Api_Key`: API Key VB6 generada desde el panel SuperAdmin (almacenada en `CONFIG_EMPRESA.vb6_api_key`)
+  - `Api_Url`: URL del backend en Azure (ej: `https://fichaje-comercial-xxx.azurewebsites.net/`)
+- Las API Keys se gestionan por empresa desde el panel SuperAdmin
 - El bridge apunta a la URL del backend del entorno del cliente
 
 ### Push Notifications (VAPID)
@@ -161,12 +163,12 @@ Además de las variables de BD (`DB_HOST`, `DB_NAME`, etc.), cada entorno necesi
 | `VAPID_PUBLIC_KEY` | Clave pública VAPID | Push notifications |
 | `VAPID_PRIVATE_KEY` | Clave privada VAPID | Push notifications |
 | `VAPID_EMAIL` | Email de contacto VAPID | Push notifications |
-| `VB6_API_KEY` | API Key para el bridge VB6 | VB6-Bridge |
+| `VB6_API_KEY` | API Key legacy compartida para VB6 (fallback; preferir claves por empresa en BD) | VB6-Bridge |
 | `FRONTEND_URL` | URL del frontend (para iconos de push) | Push notifications |
 | `AZURE_STORAGE_CONNECTION_STRING` | Conexión Azure Blob | Notas de gasto |
 | `AZURE_STORAGE_CONTAINER_NAME` | Contenedor Azure Blob | Notas de gasto |
 
-> Las `flutter_api_key` se almacenan en BD (tabla `CONFIG_EMPRESA`), no en `.env`.
+> Tanto `flutter_api_key` como `vb6_api_key` se almacenan en BD (tabla `CONFIG_EMPRESA`), no en `.env`. Se gestionan desde el panel SuperAdmin.
 
 ### 4. Multi-tenancy Híbrido
 

@@ -163,10 +163,13 @@ Flutter App
 Permite a aplicaciones VB6 enviar notificaciones push:
 
 ```
-VB6 → Shell("bridge_api.exe --usuarios 1,2 --asunto Aviso --cuerpo Mensaje")
-      → Lee config de datos.mdb (Access protegido)
-      → POST /api/vb6/push con x-vb6-api-key
-      → Backend envía push via VAPID
+1. SuperAdmin genera API Key VB6 para la empresa (panel web)
+2. Se configura datos.mdb → tabla configuracion_api (Api_Key + Api_Url)
+3. VB6 → Shell("bridge_api.exe --usuarios 1,2 --asunto Aviso --cuerpo Mensaje")
+         → Lee Api_Key y Api_Url de datos.mdb (Access protegido con contraseña)
+         → POST /api/vb6/push con header x-vb6-api-key
+         → Backend valida contra CONFIG_EMPRESA.vb6_api_key
+         → WebPush VAPID → Navegador del usuario
 ```
 
 ### 7. Notas de Gasto

@@ -278,10 +278,12 @@ graph LR
 
 **Flujo:**
 
-1. La app VB6 ejecuta `bridge_api.exe` pasando argumentos por línea de comandos
-2. El bridge lee `api_key` y `api_url` de un Access protegido con contraseña (`datos.mdb`)
-3. Realiza `POST /api/vb6/push` con header `x-vb6-api-key`
-4. El backend valida la clave y envía las notificaciones via Web Push
+1. El superadmin genera una API Key VB6 para la empresa desde el panel web
+2. Se configura un Access local (`datos.mdb`) con tabla `configuracion_api` que contiene `Api_Key` y `Api_Url`
+3. La app VB6 ejecuta `bridge_api.exe` pasando argumentos por línea de comandos
+4. El bridge lee `Api_Key` y `Api_Url` del Access protegido con contraseña
+5. Realiza `POST /api/vb6/push` con header `x-vb6-api-key`
+6. El backend valida la clave contra `CONFIG_EMPRESA.vb6_api_key` y envía las notificaciones via Web Push
 
 **Uso desde VB6:**
 
@@ -298,11 +300,20 @@ resultado = oExec.StdOut.ReadAll   ' JSON: {"ok": true, "enviados": 2}
 - `controllers/vb6Controller.js` - Endpoint de push para VB6
 - `routes/vb6Routes.js` - Rutas `/api/vb6/*`
 
+**Configuración del Access (`datos.mdb`):**
+
+La tabla `configuracion_api` almacena las credenciales que el bridge necesita:
+
+| Campo     | Descripción                                              |
+| --------- | -------------------------------------------------------- |
+| `Api_Key` | API Key VB6 generada desde el panel SuperAdmin           |
+| `Api_Url` | URL base del backend en Azure (con `/` al final)         |
+
 **Requisitos de despliegue:**
 
 - Python 3.9+ para desarrollo (compilar con `pyinstaller --onefile bridge_api.py`)
 - Microsoft Access Database Engine en la máquina cliente
-- `VB6_API_KEY` en `.env` del backend (misma clave en el campo `api_key` del Access)
+- API Key VB6 generada desde el panel SuperAdmin (almacenada en `CONFIG_EMPRESA.vb6_api_key`)
 
 > Documentación detallada: [VB6-Bridge README](../../vb6-bridge/README.md)
 

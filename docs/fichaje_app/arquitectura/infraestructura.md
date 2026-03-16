@@ -90,6 +90,39 @@ graph LR
 
 ---
 
+## 📲 Componentes de Integración por Entorno
+
+Además de los pares Backend + Frontend, cada entorno puede tener componentes adicionales:
+
+### Flutter (App Móvil)
+
+La app Flutter se conecta al backend del entorno correspondiente usando una API Key por empresa.
+
+- Cada empresa tiene su propia `flutter_api_key` en `CONFIG_EMPRESA`
+- La URL de la API se configura en la app Flutter al compilar
+- Las API Keys se gestionan desde el panel admin web de cada entorno
+
+### VB6-Bridge
+
+El bridge se despliega en las máquinas donde corre la aplicación VB6 del cliente.
+
+- El `bridge_api.exe` se distribuye manualmente al cliente
+- La configuración (URL de API + API Key) se almacena en un Access local (`datos.mdb`)
+- Cada entorno tiene su propia `VB6_API_KEY` en `.env`
+- El bridge apunta a la URL del backend del entorno del cliente
+
+### Push Notifications (VAPID)
+
+Cada entorno tiene su propio par de claves VAPID (pública + privada):
+
+- Las claves se configuran en `.env` (`VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_EMAIL`)
+- El frontend necesita la clave pública VAPID en `appConfig.ts` para suscribir al navegador
+- Las claves de todos los entornos están documentadas en `VAPID-Keys.md` (raíz del repositorio)
+
+> **Importante**: Si cambias las claves VAPID de un entorno, todas las suscripciones push existentes dejarán de funcionar (error 403). Los usuarios tendrán que volver a suscribirse.
+
+---
+
 ## ⚙️ Detalles de Configuración
 
 ### Vinculación Frontend - Backend
@@ -119,6 +152,22 @@ Cuando desarrolles una nueva feature, **¿dónde debe ir?**
 - `AppFichaje` (BD) -> Es para el cliente LaTorre.
 - Rama `main` -> Despliega al cliente LaTorre (no es el trunk genérico habitual).
 
-### 3. Multi-tenancy Híbrido
+### 3. Variables de Entorno Clave
+
+Además de las variables de BD (`DB_HOST`, `DB_NAME`, etc.), cada entorno necesita:
+
+| Variable | Descripción | Usado por |
+| --- | --- | --- |
+| `VAPID_PUBLIC_KEY` | Clave pública VAPID | Push notifications |
+| `VAPID_PRIVATE_KEY` | Clave privada VAPID | Push notifications |
+| `VAPID_EMAIL` | Email de contacto VAPID | Push notifications |
+| `VB6_API_KEY` | API Key para el bridge VB6 | VB6-Bridge |
+| `FRONTEND_URL` | URL del frontend (para iconos de push) | Push notifications |
+| `AZURE_STORAGE_CONNECTION_STRING` | Conexión Azure Blob | Notas de gasto |
+| `AZURE_STORAGE_CONTAINER_NAME` | Contenedor Azure Blob | Notas de gasto |
+
+> Las `flutter_api_key` se almacenan en BD (tabla `CONFIG_EMPRESA`), no en `.env`.
+
+### 4. Multi-tenancy Híbrido
 
 Al codificar, **SIEMPRE asume que estás en entorno multi-tenant** (filtra por empresa), incluso si el código corre en un servidor dedicado. Esto facilita la migración futura a `kong1App`.

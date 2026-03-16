@@ -123,7 +123,53 @@ if (parteAuto) {
 }
 ```
 
-### 4. Notas de Gasto
+### 4. Notificaciones Push (VAPID)
+
+El sistema envía notificaciones push a los navegadores de los usuarios usando el protocolo Web Push con VAPID:
+
+```
+Frontend (PWA)
+  → Service Worker solicita permiso
+  → Obtiene endpoint + claves (p256dh, auth)
+  → POST /api/push-browser/subscribe → BD (PushBrowser)
+
+Login  → POST /api/push-browser/reassign  (reasigna suscripción al usuario actual)
+Logout → POST /api/push-browser/deactivate (desactiva suscripción)
+
+Desde código backend:
+  sendPushToUsers(userId, 'Título', 'Mensaje', '/ruta')
+```
+
+**Importante para desarrolladores:** Las suscripciones son **persistentes** (sobreviven al cierre del navegador). La privacidad se garantiza reasignando la suscripción en cada login.
+
+### 5. Fichaje Flutter (App Móvil)
+
+La app Flutter permite fichaje rápido sin JWT, usando API Key por empresa:
+
+```
+Flutter App
+  → POST /api/flutter-fichaje/fichar
+  → Header: X-Flutter-API-Key: <clave_empresa>
+  → Body: { "codigo_usuario": "USER001" }
+  → Respuesta: { action: "entrada" | "salida" }
+```
+
+- Cada empresa tiene su propia API Key (gestionada desde el panel admin web)
+- El usuario se identifica por `codigo_usuario` (campo único en USUARIOS)
+- Rate limit: 100 peticiones por usuario cada 15 minutos
+
+### 6. VB6-Bridge (Legacy)
+
+Permite a aplicaciones VB6 enviar notificaciones push:
+
+```
+VB6 → Shell("bridge_api.exe --usuarios 1,2 --asunto Aviso --cuerpo Mensaje")
+      → Lee config de datos.mdb (Access protegido)
+      → POST /api/vb6/push con x-vb6-api-key
+      → Backend envía push via VAPID
+```
+
+### 7. Notas de Gasto
 
 Los empleados pueden:
 
@@ -143,26 +189,38 @@ Los empleados pueden:
 
 ### Backend
 
-| Módulo         | Descripción               | Archivos clave                                   |
-| -------------- | ------------------------- | ------------------------------------------------ |
-| **auth**       | Autenticación JWT         | `authController.js`, `authMiddleware.js`         |
-| **asistencia** | Fichajes                  | `asistenciaController.js`, `asistenciaRoutes.js` |
-| **proyectos**  | Gestión de proyectos      | `proyectosController.js`                         |
-| **partes**     | Partes de trabajo         | `parteController.js`                             |
-| **albaran**    | Albaranes y facturación   | `albaranController.js`                           |
-| **nota-gasto** | Notas de gasto            | `notaGastoController.js`                         |
-| **vacaciones** | Solicitudes de vacaciones | `vacacionesController.js`                        |
-| **empresa**    | Gestión de empresas       | `empresaController.js`                           |
+| Módulo | Descripción | Archivos clave |
+| --- | --- | --- |
+| **auth** | Autenticación JWT | `authController.js`, `authMiddleware.js` |
+| **asistencia** | Fichajes (web) | `asistenciaController.js`, `asistenciaRoutes.js` |
+| **proyectos** | Gestión de proyectos | `proyectosController.js` |
+| **partes** | Partes de trabajo | `parteController.js` |
+| **albaran** | Albaranes y facturación | `albaranController.js` |
+| **nota-gasto** | Notas de gasto | `notaGastoController.js` |
+| **vacaciones** | Solicitudes de vacaciones | `vacacionesController.js` |
+| **empresa** | Gestión de empresas | `empresaController.js` |
+| **flutter-fichaje** | Fichaje desde app móvil (API Key) | `flutterFichajeController.js`, `flutterApiKeyMiddleware.js` |
+| **flutter-config** | Gestión API Keys Flutter | `flutterConfigController.js` |
+| **push-browser** | Notificaciones push VAPID | `pushBrowserController.js`, `config/push.js` |
+| **vb6** | Bridge VB6 → Push | `vb6Controller.js`, `vb6ApiKeyMiddleware.js` |
 
 ### Frontend
 
-| Módulo                | Descripción             | Ubicación                  |
-| --------------------- | ----------------------- | -------------------------- |
-| **fichar-asistencia** | Pantalla de fichaje     | `pages/fichar-asistencia/` |
-| **page-proyectos**    | Listado de proyectos    | `pages/page-proyectos/`    |
-| **page-ote**          | Órdenes de trabajo      | `pages/page-ote/`          |
-| **listado-fichaje**   | Historial de fichajes   | `pages/listado-fichaje/`   |
-| **admin**             | Panel de administración | `pages/admin/`             |
+| Módulo | Descripción | Ubicación |
+| --- | --- | --- |
+| **fichar-asistencia** | Pantalla de fichaje | `pages/fichar-asistencia/` |
+| **page-proyectos** | Listado de proyectos | `pages/page-proyectos/` |
+| **page-ote** | Órdenes de trabajo | `pages/page-ote/` |
+| **listado-fichaje** | Historial de fichajes | `pages/listado-fichaje/` |
+| **admin** | Panel de administración | `pages/admin/` |
+| **push.service** | Servicio de push notifications | `services/push/push.service.ts` |
+
+### Componentes externos
+
+| Componente | Descripción | Ubicación |
+| --- | --- | --- |
+| **vb6-bridge** | Puente Python para apps VB6 legacy | `vb6-bridge/` |
+| **Flutter app** | App móvil de fichaje rápido | Repo separado (consume API) |
 
 ## 🛠️ Stack Tecnológico
 
@@ -198,9 +256,12 @@ Orden recomendado:
 
 1. ✅ Esta introducción (estás aquí)
 2. 📖 [Configuración del Entorno](entorno.md)
-3. 🏗️ [Vista General de la Arquitectura](../arquitectura/overview.md)
+3. 🏗️ [Vista General de la Arquitectura](../arquitectura/overview.md) - Incluye Flutter, VB6-Bridge y Push
 4. ⚠️ [Decisiones Arquitectónicas](../arquitectura/decisiones.md) - **MUY IMPORTANTE**
 5. 📝 [Convenciones de Código](../guias/convenciones.md)
+6. 📲 [Flutter Fichaje API](../../backend-AppServicios/FLUTTER_FICHAJE_API.md) - Si trabajarás con la app móvil
+7. 🔔 [Push Notifications](../../backend-AppServicios/PUSH_NOTIFICATIONS_USAGE.md) - Si trabajarás con notificaciones
+8. 🔗 [VB6-Bridge](../../vb6-bridge/README.md) - Si trabajarás con la integración legacy
 
 ### 2. Configurar tu Entorno
 
@@ -299,14 +360,19 @@ const datos = await db.TABLA.findAll();
 
 ## 🎓 Glosario
 
-| Término           | Significado                             |
-| ----------------- | --------------------------------------- |
-| **OT**            | Orden de Trabajo                        |
-| **Parte**         | Parte de trabajo (registro de tiempo)   |
-| **Fichaje**       | Registro de entrada/salida              |
-| **Parte Auto**    | Creación automática de partes al fichar |
-| **Multi-tenancy** | Múltiples empresas en un sistema        |
-| **Superadmin**    | Administrador global del sistema        |
+| Término | Significado |
+| --- | --- |
+| **OT** | Orden de Trabajo |
+| **Parte** | Parte de trabajo (registro de tiempo) |
+| **Fichaje** | Registro de entrada/salida |
+| **Parte Auto** | Creación automática de partes al fichar |
+| **Multi-tenancy** | Múltiples empresas en un sistema |
+| **Superadmin** | Administrador global del sistema |
+| **VAPID** | Voluntary Application Server Identification — protocolo para push notifications |
+| **VB6-Bridge** | Ejecutable Python que conecta apps VB6 con la API REST |
+| **API Key** | Clave de autenticación alternativa a JWT (usada por Flutter y VB6) |
+| **codigo_usuario** | Identificador único del usuario para fichaje Flutter (campo en USUARIOS) |
+| **PushBrowser** | Tabla que almacena suscripciones push de navegadores |
 
 ## ✅ Checklist de Onboarding
 
@@ -319,6 +385,8 @@ const datos = await db.TABLA.findAll();
 - [ ] Probar flujo de fichaje
 - [ ] Probar creación de proyecto
 - [ ] Revisar código de un módulo completo
+- [ ] Entender el flujo de push notifications (subscribe → reassign → send)
+- [ ] Revisar cómo funciona el fichaje Flutter (API Key + codigo_usuario)
 - [ ] Hacer tu primera contribución
 
 ---

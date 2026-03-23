@@ -193,7 +193,7 @@ sequenceDiagram
 | `/api/flutter-config/flutter-api-key/regenerate/:id_empresa` | POST | Regenerar (invalida anterior) |
 | `/api/flutter-config/flutter-api-key/revoke/:id_empresa` | DELETE | Revocar acceso Flutter |
 
-> Documentación detallada: [Flutter Fichaje API](../../backend-AppServicios/FLUTTER_FICHAJE_API.md) | [Flutter API Key Auth](../../backend-AppServicios/FLUTTER_API_KEY_AUTH.md)
+> Documentación detallada: [Flutter Fichaje API](../integraciones/flutter-fichaje-api.md) | [Flutter API Key Auth](../integraciones/flutter-api-key-auth.md)
 
 ### 5. Notificaciones Push (VAPID / Web Push)
 
@@ -256,7 +256,7 @@ await sendPushToUsers(null, 'Título', 'Mensaje broadcast');
 await sendPushToUsers(123, 'Vacación Aprobada', 'Tu solicitud fue aprobada', '/vacaciones');
 ```
 
-> Documentación detallada: [Guía de Push Notifications](../../backend-AppServicios/PUSH_NOTIFICATIONS_USAGE.md)
+> Documentación detallada: [Guía de Push Notifications](../integraciones/push-notifications.md)
 
 ### 6. VB6-Bridge (Integración Legacy)
 
@@ -315,7 +315,7 @@ La tabla `configuracion_api` almacena las credenciales que el bridge necesita:
 - Microsoft Access Database Engine en la máquina cliente
 - API Key VB6 generada desde el panel SuperAdmin (almacenada en `CONFIG_EMPRESA.vb6_api_key`)
 
-> Documentación detallada: [VB6-Bridge README](../../vb6-bridge/README.md)
+> Documentación detallada: [VB6-Bridge](../integraciones/vb6-bridge.md)
 
 ---
 

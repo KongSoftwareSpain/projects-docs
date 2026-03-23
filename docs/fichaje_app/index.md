@@ -12,10 +12,10 @@ Bienvenido a la documentación del sistema de gestión de fichajes, proyectos y 
 
 ### 📱 Integraciones Externas
 
-- [Flutter Fichaje API](../backend-AppServicios/FLUTTER_FICHAJE_API.md) - API de fichaje para la app móvil Flutter
-- [Flutter API Key Auth](../backend-AppServicios/FLUTTER_API_KEY_AUTH.md) - Gestión de API Keys para Flutter
-- [VB6-Bridge](../vb6-bridge/README.md) - Puente Python para enviar push desde aplicaciones VB6
-- [Push Notifications](../backend-AppServicios/PUSH_NOTIFICATIONS_USAGE.md) - Guía de uso de notificaciones push (VAPID)
+- [Flutter Fichaje API](integraciones/flutter-fichaje-api.md) - API de fichaje para la app móvil Flutter
+- [Flutter API Key Auth](integraciones/flutter-api-key-auth.md) - Gestión de API Keys para Flutter
+- [VB6-Bridge](integraciones/vb6-bridge.md) - Puente Python para enviar push desde aplicaciones VB6
+- [Push Notifications](integraciones/push-notifications.md) - Guía de uso de notificaciones push (VAPID)
 
 ### 📖 Guías
 

@@ -262,9 +262,9 @@ Orden recomendado:
 3. 🏗️ [Vista General de la Arquitectura](../arquitectura/overview.md) - Incluye Flutter, VB6-Bridge y Push
 4. ⚠️ [Decisiones Arquitectónicas](../arquitectura/decisiones.md) - **MUY IMPORTANTE**
 5. 📝 [Convenciones de Código](../guias/convenciones.md)
-6. 📲 [Flutter Fichaje API](../../backend-AppServicios/FLUTTER_FICHAJE_API.md) - Si trabajarás con la app móvil
-7. 🔔 [Push Notifications](../../backend-AppServicios/PUSH_NOTIFICATIONS_USAGE.md) - Si trabajarás con notificaciones
-8. 🔗 [VB6-Bridge](../../vb6-bridge/README.md) - Si trabajarás con la integración legacy
+6. 📲 [Flutter Fichaje API](../integraciones/flutter-fichaje-api.md) - Si trabajarás con la app móvil
+7. 🔔 [Push Notifications](../integraciones/push-notifications.md) - Si trabajarás con notificaciones
+8. 🔗 [VB6-Bridge](../integraciones/vb6-bridge.md) - Si trabajarás con la integración legacy
 
 ### 2. Configurar tu Entorno
 
